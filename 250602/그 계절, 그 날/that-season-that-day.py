@@ -18,11 +18,11 @@ def last_day(Y, M, D):
     return 31
 
 def season(M):
-    if M == 3 or M == 4 or M == 5:
+    if 3 <= M <= 5:
         return 'Spring'
-    if M == 6 or M == 7 or M == 8:
+    if 6 <= M <= 8:
         return 'Summer'
-    if M == 9 or M == 10 or M == 11:
+    if 9 <= M <= 11:
         return 'Fall'
     return 'Winter'
 if last_day(Y, M, D) < D:
