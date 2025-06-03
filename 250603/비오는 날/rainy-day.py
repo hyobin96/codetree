@@ -8,7 +8,9 @@ def is_last(d1, d2):
     d1 = tuple(map(int, d1.split('-')))
     d2 = tuple(map(int, d2.split('-')))
     for x1, x2 in zip(d1, d2):
-        if x1 > x2:
+        if x1 < x2:
+            return True
+        elif x1 > x2:
             return False
     return True
 
