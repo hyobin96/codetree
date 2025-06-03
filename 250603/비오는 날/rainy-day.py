@@ -23,7 +23,7 @@ for i, d in enumerate(datas):
         break
 
 for i in range(lat_idx + 1, len(datas)):
-    if datas[i].n == 'Rain' and is_last(datas[lat_idx].d, datas[i].d):
+    if datas[i].n == 'Rain' and is_last(datas[i].d, datas[lat_idx].d):
         lat_idx = i
 
 last_d = datas[lat_idx]
