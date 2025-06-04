@@ -5,7 +5,7 @@ start = 1000
 def move(x, c):
     global start
     if c == 'L':
-        for i in range(start, start-x, -1):
+        for i in range(start - 1, start-x-1, -1):
             arr[i] += 1
         start -= x
     else:
