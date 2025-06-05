@@ -1,19 +1,12 @@
 n = int(input())
+arr = [int(input()) for _ in range(n)]
 cnt = 0
-pre = 0
-curr = 0
-_max = 1
-for i in range(n):
-    if i == 0:
-        pre = int(input())
+_max = 0
+for i in range(len(arr)):
+    if i == 0 or arr[i] == arr[i-1]:
         cnt += 1
     else:
-        curr = int(input())
-        if pre != curr:
-            _max = max(_max, cnt)
-            cnt = 0
-        cnt += 1
-        pre = curr
-        _max = max(_max, cnt)
-    
+        cnt = 1
+    _max = max(_max, cnt)
+
 print(_max)
