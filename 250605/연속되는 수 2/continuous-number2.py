@@ -2,7 +2,7 @@ n = int(input())
 cnt = 0
 pre = 0
 curr = 0
-_max = 0
+_max = 1
 for i in range(n):
     if i == 0:
         pre = int(input())
