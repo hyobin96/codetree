@@ -14,5 +14,6 @@ for i in range(n):
             cnt = 0
         cnt += 1
         pre = curr
+        _max = max(_max, cnt)
     
 print(_max)
