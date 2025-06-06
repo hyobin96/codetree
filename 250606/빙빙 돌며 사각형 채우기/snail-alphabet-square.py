@@ -7,8 +7,9 @@ def in_range(nr, nc):
 
 r, c, d = 0, 0, 0
 num = ord('A')
+diff = ord('Z') - ord('A') + 1
 for i in range(0, n*m):
-    arr[r][c] = chr(num + i)
+    arr[r][c] = chr(num + (i % diff))
     nr, nc = r + drs[d], c + dcs[d]
     if not(in_range(nr, nc) and arr[nr][nc] == ' '):
         d = (d + 1) % 4
