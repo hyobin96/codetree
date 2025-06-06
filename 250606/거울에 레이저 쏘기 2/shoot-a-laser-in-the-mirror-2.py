@@ -22,11 +22,11 @@ r, c, d = mapper[k]
 cnt = 0
 while True:
     cnt += 1
-    if d == 0:
+    if d == 0: # 하0 좌1 상2 우3
         if arr[r][c] == '/':
-            d = 3
-        else:
             d = 1
+        else:
+            d = 3
     elif d == 1:
         if arr[r][c] == '/':
             d = 0
