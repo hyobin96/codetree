@@ -4,16 +4,16 @@ arr = [input().split() for _ in range(R)]
 r, c = 0, 0
 
 def search(r, c, curr, cnt):
-    global total
+    ans = 0
     if cnt >= 3:
         if r == R-1 and c == C-1:
-            total += 1
-        return
+            return 1
+        return 0
     for i in range(r + 1, R):
         for j in range(c + 1, C):
             if arr[i][j] != curr:
-                search(i, j, arr[i][j], cnt + 1)
+                ans += search(i, j, arr[i][j], cnt + 1)
+    return ans
 
-total = 0
-search(r, c, arr[r][c], 0)
-print(total)
+ans = search(r, c, arr[r][c], 0)
+print(ans)
