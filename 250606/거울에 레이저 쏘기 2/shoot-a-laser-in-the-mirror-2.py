@@ -22,26 +22,10 @@ r, c, d = mapper[k]
 cnt = 0
 while True:
     cnt += 1
-    if d == 0: # 하0 좌1 상2 우3
-        if arr[r][c] == '/':
-            d = 1
-        else:
-            d = 3
-    elif d == 1:
-        if arr[r][c] == '/':
-            d = 0
-        else:
-            d = 2
-    elif d == 2:
-        if arr[r][c] == '/':
-            d = 3
-        else:
-            d = 1
+    if arr[r][c] == '/': # 하0 좌1 상2 우3
+        d ^= 1
     else:
-        if arr[r][c] == '/':
-            d = 2
-        else:
-            d = 0
+        d = 3 - d
     nr, nc = r + drs[d], c + dcs[d]
     if in_range(nr, nc):
         r, c = nr, nc
