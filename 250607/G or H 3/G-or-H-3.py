@@ -8,6 +8,6 @@ for _ in range(n):
     R = max(R, int(pos))
 
 _max = 0
-for i in range(1, R - k + 2):
+for i in range(1, R):
     _max = max(_max, sum(arr[i:i+k]))
 print(_max)
