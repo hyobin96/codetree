@@ -3,7 +3,7 @@ arr = [0] * 200
 R = 0
 for _ in range(n):
     c, pos = map(int, input().split())
-    arr[pos] = c
+    arr[pos] += c
     R = max(R, pos)
 
 if k >= 2 * R:
