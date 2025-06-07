@@ -2,7 +2,7 @@ n = int(input())
 arr = [int(input()) for _ in range(n)]
 inone = sum(arr)
 
-_min = 1000000
+_min = 1000000000
 for i in range(n):
     tmp = inone
     dist = 0
