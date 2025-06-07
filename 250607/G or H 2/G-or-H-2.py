@@ -1,6 +1,6 @@
 n = int(input())
 L, R = 101, -1
-arr = [0] * 101
+arr = [' '] * 101
 for _ in range(n):
     pos, pic = input().split()
     pos = int(pos)
@@ -21,9 +21,9 @@ def is_same(i, j):
 
 _max = 0
 for i in range(R+1):
-    if arr[i] != 0:
+    if arr[i] != ' ':
         for j in range(i+1, R+1):
-            if arr[j] != 0:
+            if arr[j] != ' ':
                 if is_same(i, j):
                     _max = max(_max, j-i)
 
