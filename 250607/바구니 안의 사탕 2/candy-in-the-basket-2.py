@@ -6,7 +6,7 @@ for _ in range(n):
     arr[pos] += c
     R = max(R, pos)
 
-if k >= 2 * R:
+if k >= R:
     print(sum(arr))
 else:
     _max = 0
