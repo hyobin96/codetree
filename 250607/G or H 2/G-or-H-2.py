@@ -15,14 +15,14 @@ def is_same(i, j):
             g += 1
         elif e == 'H':
             h += 1
-    if g != 0 and g == h:
+    if g == h:
         return True
     return False
 
 _max = 0
-for i in range(R):
+for i in range(R+1):
     if arr[i] != 0:
-        for j in range(i+1, R):
+        for j in range(i+1, R+1):
             if arr[j] != 0:
                 if is_same(i, j):
                     _max = max(_max, j-i)
