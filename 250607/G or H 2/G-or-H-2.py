@@ -15,7 +15,7 @@ def is_same(i, j):
             g += 1
         elif e == 'H':
             h += 1
-    if g == h:
+    if g != 0 and g == h:
         return True
     return False
 
