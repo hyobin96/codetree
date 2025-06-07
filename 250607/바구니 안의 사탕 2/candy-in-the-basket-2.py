@@ -6,7 +6,10 @@ for _ in range(n):
     arr[pos] = c
     R = max(R, pos)
 
-_max = 0
-for i in range(k, R-k+2):
-    _max = max(_max, sum(arr[i-k:i+k+1]))
-print(_max)
+if k >= 2 * R:
+    print(sum(arr))
+else:
+    _max = 0
+    for i in range(k, R-k+2):
+        _max = max(_max, sum(arr[i-k:i+k+1]))
+    print(_max)
