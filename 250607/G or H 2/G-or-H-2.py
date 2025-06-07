@@ -19,13 +19,14 @@ def is_same(i, j):
         return True
     return False
 
-_max = 0
-for i in range(R+1):
-    if arr[i] != ' ':
-        for j in range(i+1, R+1):
-            if arr[j] != ' ':
-                if is_same(i, j):
+if n == 1:
+    print(0)
+else:
+    _max = 0
+    for i in range(R+1):
+        if arr[i] != ' ':
+            for j in range(i+1, R+1):
+                if arr[j] != ' ' and is_same(i, j):
                     _max = max(_max, j-i)
-
-print(_max)
+    print(_max)
         
