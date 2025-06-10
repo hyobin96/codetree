@@ -8,8 +8,6 @@ for i in range(n):
     B = b
     cnt = 0
     for j, (p, s) in enumerate(arr):
-        if i == j:
-            p //= 2
         if B < (p+s):
             break
         cnt += 1
