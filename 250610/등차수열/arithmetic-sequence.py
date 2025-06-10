@@ -1,7 +1,7 @@
 N = int(input())
 a = list(map(int, input().split()))
 a.sort()
-count_arr = [0] * 101
+count_arr = [0] * 10000
 for num in a:
     count_arr[num] = 1
 
