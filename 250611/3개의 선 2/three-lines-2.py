@@ -14,5 +14,7 @@ for i in range(11):
                         break
             if cnt == N:
                 print(1)
-                sys.exit()                
+                sys.exit()
+
+print(0)        
 
