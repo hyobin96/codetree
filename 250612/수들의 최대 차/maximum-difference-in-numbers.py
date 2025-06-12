@@ -2,7 +2,7 @@ N, K = map(int, input().split())
 arr = [int(input()) for _ in range(N)]
 arr.sort()
 
-max_cnt = 0
+max_cnt = 1
 for start in range(N):
     min_value = arr[start]
     for search_idx in range(start + 1, N):
