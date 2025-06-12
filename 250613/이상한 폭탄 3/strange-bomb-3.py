@@ -20,7 +20,7 @@ for i, array in enumerate(save_arr):
     if cnt != 0:
         cnt += 1
     
-    if max_cnt <= cnt:
+    if cnt != 0 and max_cnt <= cnt:
         max_cnt = cnt
         max_num = i
 
