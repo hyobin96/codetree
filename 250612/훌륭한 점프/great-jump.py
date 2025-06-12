@@ -14,11 +14,7 @@ def is_possible(max_value):
     
     return True
 
-min_value = 0
-for max_value in range(max(arr), max(arr[0], arr[-1]) - 1, -1):
+for max_value in range(max(arr[0], arr[-1]), 101):
     if is_possible(max_value):
-        min_value = max_value
-    else:
+        print(max_value)
         break
-
-print(min_value)
