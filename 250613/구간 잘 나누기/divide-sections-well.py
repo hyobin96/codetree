@@ -8,6 +8,9 @@ def is_possible(max_num):
 
     num_sum = 0
     for num in num_arr:
+        if num > max_num:
+            return False
+            
         num_sum += num
         if num_sum > max_num:
             if remain_m_cnt == 0:
