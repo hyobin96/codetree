@@ -3,7 +3,7 @@ c, d = map(int, input().split())
 
 area = 0
 if b < c or a > d:
-    area = b - a + c - d
+    area = b - a + d - c
 else:
     if a <= c and d <= b:
         area = b - a
