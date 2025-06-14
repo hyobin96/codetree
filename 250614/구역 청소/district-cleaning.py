@@ -5,13 +5,6 @@ area = 0
 if b < c or a > d:
     area = b - a + d - c
 else:
-    if a <= c and d <= b:
-        area = b - a
-    elif c <= a and b <= d:
-        area = d - c
-    elif a < c and b < d:
-        area = d - a
-    elif c < a and d < b:
-        area = b - c
+    area = max(b, d) - min(a, c)
                     
 print(area)
