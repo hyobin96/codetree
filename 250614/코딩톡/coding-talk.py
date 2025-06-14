@@ -12,8 +12,12 @@ for i in range(p - 1, M):
     c, u = m_arr[i]
     person_arr[c] = 0
 
-if m_arr[p - 1][1] == m_arr[p - 2][1]:
-    person_arr[m_arr[p - 2][0]] = 0
+message = m_arr[p - 1]
+for i in range(p - 2, -1, -1):
+    if message[1] == m_arr[i][1]:
+        person_arr[m_arr[i][0]] = 0
+    else:
+        break
 
 if m_arr[p - 1][1] != 0:
     for i, v in enumerate(person_arr):
