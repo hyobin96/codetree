@@ -8,9 +8,9 @@ else:
         area = b - a
     elif c <= a and b <= d:
         area = d - c
-    elif a < c:
+    elif a < c and b < d:
         area = d - a
-    else:
+    elif c < a and d < b:
         area = b - c
                     
 print(area)
