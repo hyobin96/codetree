@@ -36,7 +36,7 @@ min_dist = 0
 if 0 not in arr:
     print(0)
 else:
-    if (x1, x2) != (0, 0) and x2 - x1 != 1:
+    if arr[(x1 + x2) // 2] == 0:
         arr[(x1 + x2) // 2] = 1
         min_dist = get_min_dist()
         arr[(x1 + x2) // 2] = 0
