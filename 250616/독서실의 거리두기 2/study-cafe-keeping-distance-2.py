@@ -33,10 +33,10 @@ def get_min_dist():
 x1, x2 = get_max_x1_x2()
 
 min_dist = 0
-if x2 - x1 == 1:
+if 0 not in arr:
     print(0)
 else:
-    if (x1, x2) != (0, 0):
+    if (x1, x2) != (0, 0) and x2 - x1 != 1:
         arr[(x1 + x2) // 2] = 1
         min_dist = get_min_dist()
         arr[(x1 + x2) // 2] = 0
