@@ -38,8 +38,9 @@ if (x1, x2) != (0, 0):
     min_dist = get_min_dist()
     arr[(x1 + x2) // 2] = 0
 
-arr[-1] = 1
-min_dist = max(min_dist, get_min_dist())
+if arr[-1] == 0:
+    arr[-1] = 1
+    min_dist = max(min_dist, get_min_dist())
 
 print(min_dist)
 
