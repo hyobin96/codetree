@@ -10,6 +10,8 @@ def get_max_dist_pos_x1_x2():
             if arr[i] == 1 and arr[j] == 1:
                 if j - i > max_dist:
                     x1, x2 = i, j
+                break
+                    
 
     return x1, x2
 
@@ -19,6 +21,7 @@ def get_min_dist():
         for j in range(i + 1, N):
             if arr[i] == 1 and arr[j] == 1:
                 min_dist = min(min_dist, j - i)
+                break
     
     return min_dist
 
