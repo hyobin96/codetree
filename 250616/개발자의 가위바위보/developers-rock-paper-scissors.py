@@ -15,7 +15,11 @@ for i in range(1, 4):
         if i == j:
             continue
         
-        cnt = arr[i][j] + arr[j][6 - (i + j)]
+        cnt = 0
+        for _ in range(3):
+            cnt += arr[i][j]
+            i, j = j, 6 - (i + j)
+
         max_count = max(max_count, cnt)
 
 print(max_count)
