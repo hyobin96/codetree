@@ -1,5 +1,5 @@
 N = int(input())
-arr = [[0] * (N + 1) for _ in range(N + 1)]
+arr = [[0] * (4) for _ in range(4)]
 
 for _ in range(N):
     i, j = map(int, input().split())
@@ -10,8 +10,8 @@ for _ in range(N):
 
 
 max_count = 0
-for i in range(1, N + 1):
-    for j in range(1, N + 1):
+for i in range(1, 4):
+    for j in range(1, 4):
         if i == j:
             continue
         
