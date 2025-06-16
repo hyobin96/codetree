@@ -29,3 +29,4 @@ x1, x2 = get_max_dist_pos_x1_x2()
 arr[(x1 + x2) // 2] = 1
 
 dist = get_min_dist()
+print(dist)
