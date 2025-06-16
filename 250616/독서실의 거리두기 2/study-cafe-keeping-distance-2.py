@@ -44,6 +44,12 @@ else:
     if arr[-1] == 0:
         arr[-1] = 1
         min_dist = max(min_dist, get_min_dist())
+        arr[-1] = 0
+
+    if arr[0] == 0:
+        arr[0] = 1
+        min_dist = max(min_dist, get_min_dist())
+        arr[0] = 0
 
     print(min_dist)
 
