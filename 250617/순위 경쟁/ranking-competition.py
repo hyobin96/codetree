@@ -33,6 +33,9 @@ def bunru():
     if C > B > A:
         return 8
 
+    if B == C > A:
+        return 9
+
 value_arr = [0] * 3
 prev = 0
 cnt = 0
