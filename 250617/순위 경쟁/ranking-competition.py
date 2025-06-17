@@ -19,24 +19,23 @@ def bunru():
         return 3
 
     if A > C > B:
-        return 4
+        return 3
     
     if B > A > C:
-        return 5
+        return 4
     
     if B > C > A:
-        return 6
+        return 4
 
     if C > A > B:
-        return 7
+        return 5
 
     if C > B > A:
-        return 8
+        return 5
 
     if B == C > A:
-        return 9
+        return 6
 
-value_arr = [0] * 3
 prev = 0
 cnt = 0
 A, B, C = 0, 0, 0
@@ -53,5 +52,5 @@ for c, s in arr:
         cnt += 1
 
     prev = curr
-    
+
 print(cnt)
