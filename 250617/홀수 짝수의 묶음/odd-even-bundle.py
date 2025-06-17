@@ -10,10 +10,11 @@ for n in arr:
     else:
         odd_cnt += 1
 
-cnt = min(odd_cnt, even_cnt)    
+cnt = min(odd_cnt, even_cnt) * 2
 
 if odd_cnt > even_cnt:
-
+    odd_cnt -= even_cnt
+    
     if odd_cnt % 3 == 0:
         cnt += odd_cnt // 3 * 2
     else:
