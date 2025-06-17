@@ -15,22 +15,13 @@ def bunru():
     if A == C > B:
         return 2
 
-    if A > B > C:
-        return 3
-
-    if A > C > B:
+    if A > B and A > C:
         return 3
     
-    if B > A > C:
-        return 4
-    
-    if B > C > A:
+    if B > A and B > C:
         return 4
 
-    if C > A > B:
-        return 5
-
-    if C > B > A:
+    if C > A and C > B:
         return 5
 
     if B == C > A:
