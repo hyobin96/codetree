@@ -28,6 +28,10 @@ p_len = len(positive_nums)
 n_len = len(negative_nums)
 z_len = len(zero_nums)
 
+if p_len >= 3:
+    multiple = positive_nums[-1] * positive_nums[-2] * positive_nums[-3]
+    res.append(multiple)
+
 if p_len >= 1 and n_len >= 2:
     multiple = positive_nums[-1] * negative_nums[0] * negative_nums[1]
     res.append(multiple)
