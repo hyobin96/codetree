@@ -51,6 +51,7 @@ for c, s in arr:
     curr = bunru()
     if prev != curr:
         cnt += 1
-        prev = curr
 
+    prev = curr
+    
 print(cnt)
