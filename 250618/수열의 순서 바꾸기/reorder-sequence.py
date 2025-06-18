@@ -19,9 +19,9 @@ for _ in range(N):
                 break
             
         if not is_ok:
-            for i in range(1, N-1):
-                if arr[i] < arr[0] and arr[i+1] > arr[0]:
-                    arr.insert(i+1, arr[0])
+            for i in range(N-1, 0, -1):
+                if arr[i] > arr[0] and arr[i-1] < arr[0]:
+                    arr.insert(i, arr[0])
                     arr.pop(0)
                     cnt += 1
                     break
