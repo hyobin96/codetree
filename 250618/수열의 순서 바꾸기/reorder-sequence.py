@@ -4,7 +4,7 @@ arr = list(map(int, input().split()))
 
 cnt = 0
 for _ in range(N ** 2):
-    if arr[-1] < arr[0]:
+    if arr[0] == max(arr):
         arr.append(arr[0])
         arr.pop(0)
         cnt += 1
