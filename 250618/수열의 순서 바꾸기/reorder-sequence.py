@@ -3,7 +3,7 @@ N = int(input())
 arr = list(map(int, input().split()))
 
 cnt = 0
-for _ in range(N):
+for _ in range(N ** 2):
     if arr[-1] < arr[0]:
         arr.append(arr[0])
         arr.pop(0)
