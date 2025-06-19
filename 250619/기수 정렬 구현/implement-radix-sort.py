@@ -1,11 +1,11 @@
 n = int(input())
 nums = list(map(int, input().split()))
 
-mod = 10
+mod = 1
 for _ in range(len(str(max(nums)))):
     arr = [[] for _ in range(10)]
     for num in nums:
-        remains = (num % mod - num % (mod // 10)) // (mod // 10)
+        remains = (num // mod) % 10
         arr[remains].append(num)
 
     mod *= 10
