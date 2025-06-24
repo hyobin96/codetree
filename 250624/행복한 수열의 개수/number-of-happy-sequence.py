@@ -1,6 +1,6 @@
 N, M = map(int, input().split())
 
-arr = [list(map(int, input().split())) for _ in range(3)]
+arr = [list(map(int, input().split())) for _ in range(N)]
 
 def is_manzok(i, j):
     for k in range(j, j + M):
