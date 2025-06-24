@@ -11,7 +11,7 @@ def is_manzok(i, j):
 
 def is_manzok2(j, i):
     for k in range(i, i + M):
-        if arr[j][i] != arr[j][k]:
+        if arr[i][j] != arr[k][j]:
             return False
 
     return True
