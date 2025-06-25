@@ -90,10 +90,10 @@ def clockwise():
 
         arr[r1][c1] = arr[r2][c2]
 
-    r1, c1 = rcs[2][-1]
+    r1, c1 = rcs[3][-2]
     arr[r1][c1] = temp1
     
-    r1, c1 = rcs[0][-1]
+    r1, c1 = rcs[1][-2]
     arr[r1][c1] = temp2    
 
 
