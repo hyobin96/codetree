@@ -50,8 +50,12 @@ def rotate():
     temp_arr = [[0] * N for _ in range(N)]
 
     for i in range(N):
+        end = N - 1
         for j in range(N):
-            temp_arr[i][j] = arr[N - j - 1][i]
+            # temp_arr[i][j] = arr[N - j - 1][i]
+            if arr[N - i - 1][N - 1 - j] != 0:
+                temp_arr[end][i] = arr[N - i - 1][N - 1 - j]
+                end -= 1
 
     for i in range(N):
         arr[i] = temp_arr[i][0:]
@@ -69,7 +73,7 @@ if M > 1:
             # print()
 
         rotate()
-        gravity()
+        # gravity()
 
     while bomb():
         gravity()
