@@ -9,7 +9,7 @@ def is_exist(i):
 
     return False
 
-r = 0
+r = N - 1
 for i in range(1, N):
     if is_exist(i):
         r = i - 1
