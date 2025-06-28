@@ -15,7 +15,7 @@ for i in range(1, N):
         r = i - 1
         break
 
-for j in range(K - 1, K + M):
+for j in range(K - 1, K + M - 1):
     arr[r][j] = 1
 
 for i in range(N):
