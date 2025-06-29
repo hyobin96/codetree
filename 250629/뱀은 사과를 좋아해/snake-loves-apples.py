@@ -29,7 +29,9 @@ for d, p in query:
     d = mapper[d]
 
     for _ in range(p):
-        nr, nc = r + drs[d], c + dcs[d]
+        hr, hc = head
+        nr, nc = hr + drs[d], hc + dcs[d]
+        tr, tc = tail
 
         if not in_range(nr, nc):
             t += 1
@@ -37,21 +39,25 @@ for d, p in query:
             sys.exit()
 
         if arr[nr][nc] == 2:
+            arr[hr][hc] = [1, d]
             arr[nr][nc] = 1
-            r, c = nr, nc
+
+        elif arr[nr][nc] == 0:
+            arr[hr][hc] = [1, d]
+
+            prev_d = arr[tr][tc][1]
+            tail = [tr + drs[prev_d], tc + dcs[prev_d]]
             
-        elif arr[nr][nc] == 1:
+            head = [nr, nc]
+            arr[nr][nc] = 1
+            
+        else:
             t += 1
             print(t)
             sys.exit()
-
-        else:
-            tr, tc = tail
-            arr[tr][tc] = 0
-            arr[nr][nc] = 1
-            r, c = nr, nc
         
         t += 1
+        head = [nr, nc]
 
 print(t)
 
