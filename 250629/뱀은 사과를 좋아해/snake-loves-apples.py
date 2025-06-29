@@ -23,7 +23,6 @@ for _ in range(M):
 query = [input().split() for _ in range(K)]
 
 t = 0
-r, c = head
 for d, p in query:
     p = int(p)
     d = mapper[d]
@@ -48,7 +47,6 @@ for d, p in query:
             prev_d = arr[tr][tc][1]
             tail = [tr + drs[prev_d], tc + dcs[prev_d]]
             
-            head = [nr, nc]
             arr[nr][nc] = 1
             
         else:
