@@ -32,12 +32,12 @@ while in_range(r, c):
             d = (d + 3) % 4
 
         else:
+            r, c = r + drs[d], c + dcs[d]
             if save_arr[r][c]:
                 is_impossible = True
                 break
             
             save_arr[r][c] = 1
-            r, c = r + drs[d], c + dcs[d]
             
             T += 1
 
