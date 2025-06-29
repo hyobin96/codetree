@@ -16,13 +16,12 @@ x, y = map(int, input().split())
 r, c = x - 1, y - 1
 
 arr = [list(input()) for _ in range(N)]
+save_arr = [[0] * N for _ in range(N)]
+is_impossible = False
 
 d = 0
 T = 0
 while in_range(r, c):
-    if T > N ** 2:
-        break
-
     if is_right_exist(r, c, d):
         if not in_range(r + drs[d], c + dcs[d]):
             r, c = r + drs[d], c + dcs[d]
@@ -33,7 +32,13 @@ while in_range(r, c):
             d = (d + 3) % 4
 
         else:
+            if save_arr[r][c]:
+                is_impossible = True
+                break
+            
+            save_arr[r][c] = 1
             r, c = r + drs[d], c + dcs[d]
+            
             T += 1
 
     else:
@@ -42,7 +47,7 @@ while in_range(r, c):
         T += 1
 
     
-if T > N ** 2:
+if is_impossible:
     print(-1)
 else:
     print(T)
