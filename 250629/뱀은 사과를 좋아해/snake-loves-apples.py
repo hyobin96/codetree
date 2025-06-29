@@ -45,7 +45,7 @@ for d, p in query:
             arr[hr][hc] = [1, d]
 
             prev_d = arr[tr][tc][1]
-            tail = [tr + drs[prev_d], tc + dcs[prev_d]]
+            arr[tr][tc], tail = 0, [tr + drs[prev_d], tc + dcs[prev_d]]
             
             arr[nr][nc] = 1
             
