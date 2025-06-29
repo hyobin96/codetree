@@ -41,7 +41,7 @@ for d, p in query:
             arr[hr][hc] = [1, d]
             arr[nr][nc] = 1
 
-        elif arr[nr][nc] == 0:
+        elif arr[nr][nc] == 0 or (nr, nc) == tuple(tail):
             arr[hr][hc] = [1, d]
 
             prev_d = arr[tr][tc][1]
@@ -57,6 +57,9 @@ for d, p in query:
         t += 1
         head = [nr, nc]
 
+        # for i in range(N):
+        #     print(*arr[i])
+        # print()
 print(t)
 
 
