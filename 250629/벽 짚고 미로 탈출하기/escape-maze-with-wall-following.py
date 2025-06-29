@@ -21,7 +21,12 @@ is_impossible = False
 
 d = 0
 T = 0
+tmp = 0
 while in_range(r, c):
+    if T > N ** 2 or tmp == 4:
+        is_impossible = True
+        break
+
     if is_right_exist(r, c, d):
         if not in_range(r + drs[d], c + dcs[d]):
             r, c = r + drs[d], c + dcs[d]
@@ -30,13 +35,11 @@ while in_range(r, c):
 
         elif is_exist(r, c, d):
             d = (d + 3) % 4
+            tmp += 1
+            continue
 
         else:
             r, c = r + drs[d], c + dcs[d]
-            if save_arr[r][c]:
-                is_impossible = True
-                break
-            
             save_arr[r][c] = 1
             
             T += 1
@@ -46,6 +49,7 @@ while in_range(r, c):
         r, c = r + drs[d], c + dcs[d]
         T += 1
 
+    tmp = 0
     
 if is_impossible:
     print(-1)
