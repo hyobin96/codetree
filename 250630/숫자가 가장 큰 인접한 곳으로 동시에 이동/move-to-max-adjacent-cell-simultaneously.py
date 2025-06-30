@@ -40,11 +40,6 @@ def simul():
             else:
                 count[i][j] = 0
 
-    
-
-
-
-
 
 N, M, T = map(int, input().split())
 
