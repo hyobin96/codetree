@@ -5,9 +5,10 @@ def search(i, j):
     _max = 0
     d = 0
 
-    cnt = 0
+    cnt = -1
     for dr, dc in zip(drs, dcs):
         nr, nc = i + dr, j + dc
+        cnt += 1
 
         if not in_range(nr, nc):
             continue
@@ -15,8 +16,6 @@ def search(i, j):
         if _max < arr[nr][nc]:
             _max = arr[nr][nc]
             d = cnt
-
-        cnt += 1
 
     return d
         
