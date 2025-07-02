@@ -1,47 +1,44 @@
 import sys
 
 def simul():
-    global cnt
+    global cnt, count_arr
     isCollision = False
-
-    xy_map = {}
 
     for i in range(1, N + 1):
         if pos_arr[i] != 0:
             cnt += 1
             r, c, w, d = pos_arr[i]
             r, c = r + drs[d], c + dcs[d]
-            pos_arr[i] = r, c, w, d
+            pos_arr[i] = (r, c, w, d)
 
             if r > max_x or c > max_y or r < min_x or c < min_y:
                 pos_arr[i] = 0
                 continue
 
-            key = str(r) + " " + str(c)
+            idx = count_arr[r][c]
+            if idx == 0:
+                count_arr[r][c] = i
+                continue
 
-            if key not in xy_map:
-                xy_map[key] = i
+            isCollision = True
+
+            if pos_arr[idx][2] > pos_arr[i][2]:
+                continue
+
+            if pos_arr[idx][2] < pos_arr[i][2]:
+                count_arr[r][c] = i
+                pos_arr[idx] = 0
+                continue
+
+            if idx > i:
+                pos_arr[i] = 0
 
             else:
-                isCollision = True
-                i2 = xy_map[key]
-                w2 = pos_arr[i2][2]
+                pos_arr[idx] = 0
+                count_arr[r][c] = i
 
-                if w2 > w:
-                    pos_arr[i] = 0
-                
-                elif w2 < w:
-                    xy_map[key] = i
-                    pos_arr[i2] = 0
-                
-                else:
-                    if i2 > i:
-                        pos_arr[i] = 0
-                    
-                    else:
-                        xy_map[key] = i
-                        pos_arr[i2] = 0
-                
+
+
     return isCollision
 
 
@@ -58,6 +55,8 @@ N = 0
 pos_arr = []
 
 input = sys.stdin.readline
+
+count_arr = [[0 for _ in range(4001)] for _ in range(4001)]
 
 for _ in range(T):
     N = int(input())
