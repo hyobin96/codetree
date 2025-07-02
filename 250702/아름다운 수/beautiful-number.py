@@ -1,21 +1,15 @@
 def is_beautiful():
-    prev = l[0]
-    _sum = prev
-    for i in range(1, N):
-        if l[i] == prev:
-            _sum += l[i]
-
-        else:
-            if prev != 1 and _sum // prev != prev:
+    i = 0
+    while i < N:
+        num = l[i]
+        for j in range(i, i + num):
+            if j == N or l[j] != num:
                 return False
 
-            prev = l[i]
-            _sum = l[i]
-
-    if prev != 1 and _sum // prev != prev:
-        return False
+        i = i + num
 
     return True
+            
 
 def dupli_perm(cnt):
     global answer
