@@ -2,6 +2,8 @@ def simul():
     global cnt
     isCollision = False
 
+    xy_map = {}
+
     for i in range(1, N + 1):
         if pos_arr[i]:
             cnt += 1
@@ -9,27 +11,28 @@ def simul():
             r, c = r + drs[d], c + dcs[d]
             pos_arr[i] = r, c, w, d
 
-    # print(pos_arr)
-    
-    for i in range(1, N + 1):
-        temp = []
-        for j in range(i, N + 1):
-            if not pos_arr[i] or not pos_arr[j]:
-                continue
+            key = str(r) + " " + str(c)
 
-            r1, c1, w1, d1 = pos_arr[i]
-            r2, c2, w2, d2 = pos_arr[j]
+            if key not in xy_map:
+                xy_map[key] = [i, w]
 
-            if (r1, c1) == (r2, c2):
-                temp.append([j, w2])
-
-        
-        temp.sort(key=lambda x: (-x[1], -x[0]))
-
-        for i in range(1, len(temp)):
-            isCollision = True
-            pos_arr[temp[i][0]] = []
-
+            else:
+                isCollision = True
+                i2, w2 = xy_map[key]
+                
+                if w2 > w:
+                    pos_arr[i] = []
+                
+                elif w2 < w:
+                    pos_arr[i2] = []
+                
+                else:
+                    if i2 > i:
+                        pos_arr[i] = []
+                    
+                    else:
+                        pos_arr[i2] = []
+                
     return isCollision
 
 
@@ -39,7 +42,7 @@ drs, dcs = [0, 0, -1, 1], [1, -1, 0, 0]
 
 mapper = {'U':0, 'D':1, 'L':2, 'R':3}
 
-
+offset = 1000
 size = 4000
 
 N = 0
@@ -49,10 +52,9 @@ for _ in range(T):
     N = int(input())
 
     pos_arr = [[]]
-
     for _ in range(N):
         x, y, w, d = input().split()
-        x, y, w, d = int(x) * 2, int(y) * 2, int(w), mapper[d]
+        x, y, w, d = (int(x) + offset) * 2, (int(y) + offset)* 2, int(w), mapper[d]
 
         pos_arr.append([x, y, w, d])
 
