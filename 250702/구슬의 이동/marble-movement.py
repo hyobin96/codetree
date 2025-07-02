@@ -15,6 +15,7 @@ def move(r, c, d, v):
     return r, c, d, v
 
 def simul():
+    global pos
     num_arr = [[[] for _ in range(N)] for _ in range(N)]
     for i in range(M + 1):
         if pos[i]:
@@ -26,14 +27,13 @@ def simul():
 
     for i in range(N):
         for j in range(N):
-            if len(num_arr[r][c]) > K:
-                num_arr[r][c].sort(key=lambda x: (x[1], x[0]), reverse=True)
+            if len(num_arr[i][j]) > K:
+                num_arr[i][j].sort(key=lambda x: (x[1], x[0]), reverse=True)
                 
-                for _ in range(len(num_arr[r][c]) - K):
-                    p = num_arr[r][c].pop()[0]
-                    pos[p] = [] 
+                for _ in range(len(num_arr[i][j]) - K):
+                    p = num_arr[i][j].pop()[0]
+                    pos[p] = []
 
-    # print(num_arr)
 
 drs, dcs = [-1, 0, 1, 0], [0, -1, 0, 1]
 
