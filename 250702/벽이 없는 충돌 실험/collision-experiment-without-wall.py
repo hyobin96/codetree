@@ -6,7 +6,7 @@ def simul():
 
     for i in range(1, N + 1):
         if pos_arr[i] != 0:
-            cnt += 1
+
             r, c, w, d = pos_arr[i]
             r, c = r + drs[d], c + dcs[d]
             pos_arr[i] = (r, c, w, d)
@@ -23,6 +23,7 @@ def simul():
             isCollision = True
 
             if pos_arr[idx][2] > pos_arr[i][2]:
+                pos_arr[i] = 0
                 continue
 
             if pos_arr[idx][2] < pos_arr[i][2]:
@@ -39,8 +40,8 @@ def simul():
 
     for i in range(1, N + 1):
         if pos_arr[i] != 0:
+            cnt += 1
             r, c, w, d = pos_arr[i]
-
             count_arr[r][c] = 0
 
     return isCollision
