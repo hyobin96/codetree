@@ -7,37 +7,38 @@ def simul():
     xy_map = {}
 
     for i in range(1, N + 1):
-        if pos_arr[i]:
+        if pos_arr[i] != 0:
             cnt += 1
             r, c, w, d = pos_arr[i]
             r, c = r + drs[d], c + dcs[d]
             pos_arr[i] = r, c, w, d
 
             if r > max_x or c > max_y or r < min_x or c < min_y:
-                pos_arr[i] = ()
+                pos_arr[i] = 0
                 continue
 
             key = str(r) + " " + str(c)
 
             if key not in xy_map:
-                xy_map[key] = (i, w)
+                xy_map[key] = i
 
             else:
                 isCollision = True
-                i2, w2 = xy_map[key]
-                
+                i2 = xy_map[key]
+                w2 = pos_arr[i2][2]
+
                 if w2 > w:
-                    pos_arr[i] = ()
+                    pos_arr[i] = 0
                 
                 elif w2 < w:
-                    pos_arr[i2] = ()
+                    pos_arr[i2] = 0
                 
                 else:
                     if i2 > i:
-                        pos_arr[i] = ()
+                        pos_arr[i] = 0
                     
                     else:
-                        pos_arr[i2] = ()
+                        pos_arr[i2] = 0
                 
     return isCollision
 
