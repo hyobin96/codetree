@@ -37,6 +37,9 @@ def simul():
                 pos_arr[idx] = 0
                 count_arr[r][c] = i
 
+    for i in range(4001):
+        for j in range(4001):
+            count_arr[i][j] = 0
 
 
     return isCollision
@@ -68,6 +71,7 @@ for _ in range(T):
 
     max_x = 0
     max_y = 0
+
     for _ in range(N):
         x, y, w, d = input().split()
         x, y, w, d = (int(x) + offset) * 2, (int(y) + offset) * 2, int(w), mapper[d]
