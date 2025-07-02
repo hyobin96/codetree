@@ -44,7 +44,7 @@ def simul():
 
 T = int(input())
 
-drs, dcs = [0, 0, -1, 1], [1, -1, 0, 0]
+drs, dcs = (0, 0, -1, 1), (1, -1, 0, 0)
 
 mapper = {'U':0, 'D':1, 'L':2, 'R':3}
 
@@ -59,7 +59,7 @@ input = sys.stdin.readline
 for _ in range(T):
     N = int(input())
 
-    pos_arr = [[]]
+    pos_arr = [()]
 
     min_x = 5000
     min_y = 5000
@@ -68,14 +68,14 @@ for _ in range(T):
     max_y = 0
     for _ in range(N):
         x, y, w, d = input().split()
-        x, y, w, d = (int(x) + offset) * 2, (int(y) + offset)* 2, int(w), mapper[d]
+        x, y, w, d = (int(x) + offset) * 2, (int(y) + offset) * 2, int(w), mapper[d]
 
         min_x, min_y = min(min_x, x), min(min_y, y)
 
         max_x = max(max_x, x)
         max_y = max(max_y ,y)
 
-        pos_arr.append([x, y, w, d])
+        pos_arr.append((x, y, w, d))
 
     last = -1
     for t in range(1, 4001):
