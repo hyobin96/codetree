@@ -1,8 +1,10 @@
 def simul():
+    global cnt
     isCollision = False
 
     for i in range(1, N + 1):
         if pos_arr[i]:
+            cnt += 1
             r, c, w, d = pos_arr[i]
             r, c = r + drs[d], c + dcs[d]
             pos_arr[i] = r, c, w, d
@@ -56,7 +58,11 @@ for _ in range(T):
 
     last = -1
     for t in range(1, size + 1):
+        cnt = 0
         if simul():
             last = t
+
+        if cnt == 0:
+            break
 
     print(last)
