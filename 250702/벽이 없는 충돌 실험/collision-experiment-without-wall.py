@@ -1,3 +1,5 @@
+import sys
+
 def simul():
     global cnt
     isCollision = False
@@ -47,6 +49,8 @@ size = 4000
 
 N = 0
 pos_arr = []
+
+input = sys.stdin.readline
 
 for _ in range(T):
     N = int(input())
