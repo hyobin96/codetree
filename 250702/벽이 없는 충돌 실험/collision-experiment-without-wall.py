@@ -38,7 +38,7 @@ drs, dcs = [0, 0, -1, 1], [1, -1, 0, 0]
 mapper = {'U':0, 'D':1, 'L':2, 'R':3}
 
 
-size = 2000
+size = 4000
 
 N = 0
 pos_arr = []
@@ -55,7 +55,7 @@ for _ in range(T):
         pos_arr.append([x, y, w, d])
 
     last = -1
-    for t in range(1, 2000):
+    for t in range(1, size + 1):
         if simul():
             last = t
 
