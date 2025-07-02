@@ -37,10 +37,11 @@ def simul():
                 pos_arr[idx] = 0
                 count_arr[r][c] = i
 
-    for i in range(4001):
-        for j in range(4001):
-            count_arr[i][j] = 0
+    for i in range(1, N + 1):
+        if pos_arr[i] != 0:
+            r, c, w, d = pos_arr[i]
 
+            count_arr[r][c] = 0
 
     return isCollision
 
