@@ -31,6 +31,7 @@ def simul():
                     pos_arr[i] = 0
                 
                 elif w2 < w:
+                    xy_map[key] = i
                     pos_arr[i2] = 0
                 
                 else:
@@ -38,6 +39,7 @@ def simul():
                         pos_arr[i] = 0
                     
                     else:
+                        xy_map[key] = i
                         pos_arr[i2] = 0
                 
     return isCollision
