@@ -14,30 +14,30 @@ def simul():
             pos_arr[i] = r, c, w, d
 
             if r > max_x or c > max_y or r < min_x or c < min_y:
-                pos_arr[i] = []
+                pos_arr[i] = ()
                 continue
 
             key = str(r) + " " + str(c)
 
             if key not in xy_map:
-                xy_map[key] = [i, w]
+                xy_map[key] = (i, w)
 
             else:
                 isCollision = True
                 i2, w2 = xy_map[key]
                 
                 if w2 > w:
-                    pos_arr[i] = []
+                    pos_arr[i] = ()
                 
                 elif w2 < w:
-                    pos_arr[i2] = []
+                    pos_arr[i2] = ()
                 
                 else:
                     if i2 > i:
-                        pos_arr[i] = []
+                        pos_arr[i] = ()
                     
                     else:
-                        pos_arr[i2] = []
+                        pos_arr[i2] = ()
                 
     return isCollision
 
@@ -78,7 +78,7 @@ for _ in range(T):
         pos_arr.append([x, y, w, d])
 
     last = -1
-    for t in range(1, 100):
+    for t in range(1, 4001):
         cnt = 0
         if simul():
             last = t
