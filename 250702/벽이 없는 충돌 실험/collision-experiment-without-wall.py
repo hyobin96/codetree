@@ -78,7 +78,7 @@ for _ in range(T):
         pos_arr.append([x, y, w, d])
 
     last = -1
-    for t in range(1, size + 1):
+    for t in range(1, 100):
         cnt = 0
         if simul():
             last = t
