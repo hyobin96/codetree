@@ -13,6 +13,10 @@ def simul():
             r, c = r + drs[d], c + dcs[d]
             pos_arr[i] = r, c, w, d
 
+            if r > max_x or c > max_y or r < min_x or c < min_y:
+                pos_arr[i] = []
+                continue
+
             key = str(r) + " " + str(c)
 
             if key not in xy_map:
@@ -56,9 +60,20 @@ for _ in range(T):
     N = int(input())
 
     pos_arr = [[]]
+
+    min_x = 5000
+    min_y = 5000
+
+    max_x = 0
+    max_y = 0
     for _ in range(N):
         x, y, w, d = input().split()
         x, y, w, d = (int(x) + offset) * 2, (int(y) + offset)* 2, int(w), mapper[d]
+
+        min_x, min_y = min(min_x, x), min(min_y, y)
+
+        max_x = max(max_x, x)
+        max_y = max(max_y ,y)
 
         pos_arr.append([x, y, w, d])
 
