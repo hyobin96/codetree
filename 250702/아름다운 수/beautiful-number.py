@@ -18,15 +18,13 @@ def dupli_perm(cnt):
             answer += 1
         return
 
-    for i in range(1, N + 1):
+    for i in range(1, 5):
         l.append(i)
         dupli_perm(cnt + 1)
         l.pop()
         
 
-
 N = int(input())
-count_arr = [0] * (N + 1)
 l = []
 answer = 0
 
