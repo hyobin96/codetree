@@ -24,12 +24,10 @@ def select(idx):
     if idx == N:
         return
         
-
     for i in range(idx, N):
         idx_arr.append(i)
-        select(idx + 1)
+        select(i + 1)
         idx_arr.pop()
-
 
 
 N = int(input())
