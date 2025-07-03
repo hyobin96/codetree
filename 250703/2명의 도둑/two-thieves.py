@@ -1,19 +1,31 @@
-def get_price(i, j):
-    l = arr[i][j:j+M]
-    l.sort(reverse = True)
-    
-    _sum = 0
-    total = 0
-    for w in l:
-        if _sum + w <= C:
-            _sum += w
-            total += w ** 2
+def combi(l, idx, arr):
+    global value
+    if sum(arr) > C:
+        return
 
-    return total
+    _sum = 0
+    for e in arr:
+        _sum += e ** 2
+    
+    value = max(value, _sum)
+
+    for i in range(idx, len(l)):
+        arr.append(l[i])
+        combi(l, i + 1, arr)
+        arr.pop()
+
+def get_price(i, j):
+    global value
+    l = arr[i][j:j+M]
+    value = 0
+    combi(l, 0, [])
+
+    return value
     
 N, M, C = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(N)]
 ans = 0
+value = 0
 
 for i in range(N):
     for j in range(N - M + 1):
