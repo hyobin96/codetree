@@ -20,9 +20,6 @@ def select(idx):
         return
 
     max_cnt = max(max_cnt, len(idx_arr))
-
-    if idx == N:
-        return
         
     for i in range(idx, N):
         idx_arr.append(i)
