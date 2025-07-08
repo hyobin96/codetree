@@ -5,7 +5,7 @@ def select_orders(cnt, result, last):
         return
     
     for i in range(1, N):
-        if visited[i]:
+        if visited[i] or costs[last][i] == 0:
             continue
         
         visited[i] = True
