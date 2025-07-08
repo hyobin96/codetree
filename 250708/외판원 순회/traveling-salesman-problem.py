@@ -1,7 +1,8 @@
 def select_orders(cnt, result, last):
     global answer, visited, costs
     if cnt == N - 1:
-        answer = min(answer, result + costs[last][0])
+        if costs[last][0] != 0:
+            answer = min(answer, result + costs[last][0])
         return
     
     for i in range(1, N):
