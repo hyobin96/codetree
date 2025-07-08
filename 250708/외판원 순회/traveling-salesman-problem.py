@@ -17,6 +17,6 @@ def select_orders(cnt, result, last):
 
 N = int(input())
 costs = [list(map(int, input().split())) for _ in range(N)]
-answer, visited = 10000000, [False] * N
+answer, visited = 1000000000, [False] * N
 select_orders(0, 0, 0)
 print(answer)
