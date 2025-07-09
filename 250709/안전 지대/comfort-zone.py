@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(2500)
+
 def in_range(nr, nc):
     return 0 <= nr < N and 0 <= nc < M
 
