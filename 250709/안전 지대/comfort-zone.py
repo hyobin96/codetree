@@ -21,7 +21,7 @@ drs, dcs = (-1, 1, 0, 0), (0, 0, -1, 1)
 N, M = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(N)]
 visited = [[0] * M for _ in range(N)]
-max_cnt, min_K, K = 0, 0, 0
+max_cnt, min_K, K = 0, 1, 1
 
 for k in range(1, 101):
     K = k
