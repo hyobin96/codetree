@@ -11,7 +11,7 @@ def bfs(curr):
     r, c = curr
     q = deque()
     q.append(curr)
-
+    visited[r][c] = 1
     drs, dcs = (-1, 1, 0, 0), (0, 0, -1, 1)
 
     cnt = 0
@@ -26,8 +26,6 @@ def bfs(curr):
                 q.append((nr, nc))
 
     return cnt
-
-
 
 
 def select_rocks(cnt, start, curr):
@@ -61,7 +59,7 @@ for _ in range(K):
     r, c = r - 1, c - 1
     select_rocks(0, 0, (r, c))
 
-print(answer - 1)
+print(answer)
 
 # for e in combinations(range(M), 3):
 #     for
