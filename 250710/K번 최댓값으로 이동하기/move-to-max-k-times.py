@@ -3,18 +3,20 @@ from collections import deque
 def update_dest(r, c):
     global num_max, max_r, max_c
     num = grid[r][c]
-    if num_max < num:
+    if (num, -r, -c) > (num_max, -max_r, max_c):
         num_max, max_r, max_c = num, r, c
-        return
+    # if num_max < num:
+    #     num_max, max_r, max_c = num, r, c
+    #     return
     
-    if num_max == num:
-        if max_r > r:
-            num_max, max_r, max_c = num, r, c
-            return
+    # if num_max == num:
+    #     if max_r > r:
+    #         num_max, max_r, max_c = num, r, c
+    #         return
 
-        if max_r == r and max_c > c:
-            num_max, max_r, max_c = num, r, c
-            return
+    #     if max_r == r and max_c > c:
+    #         num_max, max_r, max_c = num, r, c
+    #         return
     return
 
 def in_range(nr, nc):
