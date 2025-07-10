@@ -11,7 +11,7 @@ def bfs(curr):
     r, c = curr
     q = deque()
     q.append(curr)
-    visited[r][c] = 1
+    
     drs, dcs = (-1, 1, 0, 0), (0, 0, -1, 1)
 
     cnt = 0
@@ -28,17 +28,24 @@ def bfs(curr):
     return cnt
 
 
-def select_rocks(cnt, start, curr):
+def select_rocks(cnt, start):
     global grid, answer, visited
     if cnt == M:
         visited = [[0] * N for _ in range(N)]
-        answer = max(answer, bfs(curr))
+        possible_areas = 0
+        for r, c in start_pos:
+            r, c = r - 1, c - 1
+            if not visited[r][c]:
+                visited[r][c] = 1
+                possible_areas += bfs((r, c))
+        
+        answer = max(answer, possible_areas)
         return
 
     for i in range(start, len(pos)):
         r, c = pos[i]
         grid[r][c] = 0
-        select_rocks(cnt + 1, i + 1, curr)
+        select_rocks(cnt + 1, i + 1)
         grid[r][c] = 1
 
 
@@ -54,10 +61,8 @@ grid = [list(map(int, input().split())) for _ in range(N)]
 pos, answer = [], 0
 visited = [[0] * N for _ in range(N)]
 init_pos(pos)
-for _ in range(K):
-    r, c = map(int, input().split())
-    r, c = r - 1, c - 1
-    select_rocks(0, 0, (r, c))
+start_pos = [tuple(map(int, input().split())) for _ in range(K)]
+select_rocks(0, 0)
 
 print(answer)
 
