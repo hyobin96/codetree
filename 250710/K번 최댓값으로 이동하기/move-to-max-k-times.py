@@ -3,7 +3,7 @@ from collections import deque
 def update_dest(r, c):
     global num_max, max_r, max_c
     num = grid[r][c]
-    if (num, -r, -c) > (num_max, -max_r, max_c):
+    if (num, -r, -c) > (num_max, -max_r, -max_c):
         num_max, max_r, max_c = num, r, c
     # if num_max < num:
     #     num_max, max_r, max_c = num, r, c
