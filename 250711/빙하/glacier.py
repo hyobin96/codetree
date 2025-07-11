@@ -27,7 +27,8 @@ def search_water(r, c, q):
         nr, nc = r + dr, c + dc
         if in_range(nr, nc) and not grid[nr][nc] and not visited[nr][nc]:
             visited[nr][nc] = 1
-            q.append((nr, nc))
+            if next_to_glaicer(nr, nc):
+                q.append((nr, nc))
             search_water(nr, nc, q)
     
 
