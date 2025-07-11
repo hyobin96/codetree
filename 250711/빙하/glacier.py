@@ -59,7 +59,7 @@ def init_q(q):
     global visited, cri
     for i in range(N):
         for j in range(M):
-            if not grid[i][j] and next_to_glaicer(i, j) and not is_around(i, j, q):
+            if not visited[i][j] and not grid[i][j] and next_to_glaicer(i, j) and not is_around(i, j, q):
                 cri += 1
                 visited[i][j] = 1
                 q.append((i, j))
