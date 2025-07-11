@@ -35,7 +35,7 @@ for i in range(N * N):
         
 
 answer = 0
-for cities in combinations(range(9), K):
+for cities in combinations(range(N * N), K):
     s = set()
     for city in cities:
         s.update(visited_cities[city])
