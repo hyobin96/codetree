@@ -3,6 +3,7 @@ from collections import deque
 in_range = lambda nr, nc: 0 <= nr < N and 0 <= nc < M
 
 def is_around(i, j):
+    global visited2, cri
     q = deque()
     q.append((i, j))
     visited = [[0] * M for _ in range(N)]
@@ -13,9 +14,9 @@ def is_around(i, j):
             nr, nc = r + dr, c + dc
             if not in_range(nr, nc):
                 return False
-            if visited[nr][nc]:
+            if visited[nr][nc] == cri:
                 continue
-            visited[nr][nc] = 1
+            visited[nr][nc] = cri
             if grid[nr][nc] == 0:
                 q.append((nr, nc))
     return True
@@ -46,10 +47,11 @@ def next_to_glaicer(r, c):
         
 
 def init_q(q):
-    global visited
+    global visited, cri
     for i in range(N):
         for j in range(M):
             if not grid[i][j] and next_to_glaicer(i, j) and not is_around(i, j):
+                cri += 1
                 visited[i][j] = 1
                 q.append((i, j))
 
@@ -84,5 +86,7 @@ drs, dcs = (-1, 1, 0, 0), (0, 0, -1, 1)
 N, M = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(N)]
 visited = [[0] * M for _ in range(N)]
+visited2 = [[0] * N for _ in range(M)]
+cri = 1
 time, size = melting_glacier()
 print(time, size)
