@@ -5,7 +5,7 @@ in_range = lambda r, c: 0 <= r < N and 0 <= c < N
 can_go = lambda r, c: in_range(r, c) and visited[r][c] != cir
 
 def is_between(r, c, nr, nc):
-    return U <= abs(grid[r][c] - grid[nr][nc]) <=D
+    return U <= abs(grid[r][c] - grid[nr][nc]) <= D
 
 def bfs(curr):
     global visited, visited_cities
@@ -16,13 +16,13 @@ def bfs(curr):
     
     while q:
         curr = q.popleft()
-        r, c = curr // 3, curr % 3
+        r, c = curr // N, curr % N
         visited_cities[start_city].append(curr)
         for dr, dc in zip(drs, dcs):
             nr, nc = r + dr, c + dc
             if can_go(nr, nc) and is_between(r, c, nr, nc):
                 visited[nr][nc] = cir
-                q.append(nr * 3 + nc)
+                q.append(nr * N + nc)
 
 N, K, U, D = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(N)]
