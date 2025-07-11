@@ -2,14 +2,25 @@ from collections import deque
 
 in_range = lambda nr, nc: 0 <= nr < N and 0 <= nc < M
 
+def is_around(i, j):
+    for dr, dc in zip(drs, dcs):
+        r, c = i, j
+        while True:
+            r, c = r + dr, c + dc
+            if not in_range(r, c):
+                return False
+            if grid[r][c]:
+                break
+    return True
+
 def search_water(r, c, q):
     global visited
     for dr, dc in zip(drs, dcs):
         nr, nc = r + dr, c + dc
-        if in_range(nr, nc) and not grid[nr][nc] and not visited[nr][nc] \
-            and next_to_glaicer(nr, nc):
+        if in_range(nr, nc) and not grid[nr][nc] and not visited[nr][nc]:
             visited[nr][nc] = 1
-            q.append((nr, nc))
+            if next_to_glaicer(nr, nc):
+                q.append((nr, nc))
             search_water(nr, nc, q)
     
 
@@ -30,7 +41,7 @@ def init_q(q):
     global visited
     for i in range(N):
         for j in range(M):
-            if not grid[i][j] and next_to_glaicer(i, j):
+            if not grid[i][j] and next_to_glaicer(i, j) and not is_around(i, j):
                 visited[i][j] = 1
                 q.append((i, j))
 
