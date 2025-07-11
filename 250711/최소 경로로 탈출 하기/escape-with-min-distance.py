@@ -25,4 +25,4 @@ N, M = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(N)]
 visited, step = [[0] * M for _ in range(N)], [[0] * M for _ in range(N)]
 bfs()
-print(-1 if step[N - 1][M - 1] == -1 else step[N - 1][M - 1])
+print(-1 if step[N - 1][M - 1] == 0 else step[N - 1][M - 1])
