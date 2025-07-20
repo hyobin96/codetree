@@ -5,7 +5,6 @@ for i in range(n):
 
 d = dict()
 word_max = 0
-answer = 0
 for word in words:
     if word in d:
         d[word] += 1
@@ -14,6 +13,5 @@ for word in words:
 
     if word_max < d[word]:
         word_max = d[word]
-        answer = len(word)
 
-print(answer)
+print(word_max)
