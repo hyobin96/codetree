@@ -14,13 +14,14 @@ def fact(n):
         result *= i
     return result
 
-answer = 0
+answer1 = 0
+answer2 = 0
 for z in z_d.keys():
     target = K - z
     if target in z_d:
         if target == z and z_d[target] > 1:
-            answer += fact(z_d[target] - 1)
+            answer2 += fact(z_d[target] - 1)
         else:
-            answer += z_d[target] * z_d[z]
+            answer1 += z_d[target] * z_d[z]
 
-print(answer // 2)
+print(answer1 // 2 + answer2)
