@@ -6,23 +6,20 @@ group_size = []
 for _ in range(G):
     nums = list(map(int, input().split()))
     group_size.append(nums[0])
-    group.append(nums[1:])
+    group.append(set(nums[1:]))
 
 # Please write your code here.
 
-answers = {1}
-while True:
-    size = len(answers)
-    for i in range(G):
-        if group_size[i] == 0:
-            continue
-        s = set(group[i])
-        sub = s - answers
-        if len(sub) == 1:
-            answers |= sub
-            group_size[i] = 0
+answer = 1
+subs = {1}
+while subs:
+    next_subs = set()
+    for g in group:
+        g -= subs
+        if len(g) == 1:
+            next_subs |= g
 
-    if size == len(answers):
-        break
+    subs = next_subs
+    answer += len(subs)
 
-print(len(answers))
+print(answer)
