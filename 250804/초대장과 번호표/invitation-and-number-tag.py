@@ -26,10 +26,8 @@ answers = {1}
 for _ in range(int(G ** 0.5) + 1):
     for g in group:
         s = set(g)
-        for n in g:
-            if n in answers:
-                s.remove(n)
-        if len(s) == 1:
+        sub = s - answers
+        if len(sub) == 1:
             for n in s:
                 answers.add(n)
 
