@@ -23,14 +23,15 @@ for g in group:
 group.sort(lambda x: (len(x), x))
 
 answers = {1}
-for g in group:
-    for _ in range(3):
-        s = set(g)
-        for n in g:
-            if n in answers:
-                s.remove(n)
-        if len(s) == 1:
-            for n in s:
-                answers.add(n)
+for _ in range(2):
+    for g in group:
+        for _ in range(2):
+            s = set(g)
+            for n in g:
+                if n in answers:
+                    s.remove(n)
+            if len(s) == 1:
+                for n in s:
+                    answers.add(n)
 
 print(len(answers))
