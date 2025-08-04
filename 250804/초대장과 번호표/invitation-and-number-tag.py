@@ -28,7 +28,6 @@ for _ in range(int(G ** 0.5) + 1):
         s = set(g)
         sub = s - answers
         if len(sub) == 1:
-            for n in s:
-                answers.add(n)
+            answers |= sub
 
 print(len(answers))
