@@ -10,9 +10,9 @@ for _ in range(G):
 
 # Please write your code here.
 
-# for g in group:
-#     g.sort()
-# group.sort(lambda x: (len(x), x))
+for g in group:
+    g.sort()
+group.sort(lambda x: (len(x), x))
 
 answers = {1}
 while True:
