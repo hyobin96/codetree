@@ -23,7 +23,7 @@ for g in group:
 group.sort(lambda x: (len(x), x))
 
 answers = {1}
-for _ in range(2):
+for _ in range(N):
     for g in group:
         for _ in range(2):
             s = set(g)
