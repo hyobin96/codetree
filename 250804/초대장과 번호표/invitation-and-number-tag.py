@@ -18,9 +18,9 @@ for _ in range(G):
 #     else:
 #         d[group_size[i]] = [group[i]]
 
-for g in group:
-    g.sort()
-group.sort(lambda x: (len(x), x))
+# for g in group:
+#     g.sort()
+# group.sort(lambda x: (len(x), x))
 
 answers = {1}
 for _ in range(G):
