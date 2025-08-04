@@ -1,14 +1,6 @@
 N, G = map(int, input().split())
 
-group = []
-group_size = []
-
-for _ in range(G):
-    nums = list(map(int, input().split()))
-    group_size.append(nums[0])
-    group.append(set(nums[1:]))
-
-# Please write your code here.
+group = [set(list(map(int, input().split()))[1:]) for _ in range(G)]
 
 answer = 1
 subs = {1}
