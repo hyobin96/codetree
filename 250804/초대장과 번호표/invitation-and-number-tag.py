@@ -24,7 +24,7 @@ group.sort(lambda x: (len(x), x))
 
 answers = {1}
 for g in group:
-    for _ in range(2):
+    for _ in range(3):
         s = set(g)
         for n in g:
             if n in answers:
