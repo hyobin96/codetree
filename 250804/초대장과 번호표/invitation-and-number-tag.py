@@ -23,7 +23,7 @@ for _ in range(G):
 # group.sort(lambda x: (len(x), x))
 
 answers = {1}
-for _ in range(G):
+for _ in range(int(G ** 0.5) + 1):
     for g in group:
         for _ in range(2):
             s = set(g)
