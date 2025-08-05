@@ -12,7 +12,7 @@ for _ in range(n):
         s.remove(int(line[1]))
     elif com == 'find':
         x = int(line[1])
-        print('true' if x in s else false)
+        print('true' if x in s else 'false')
     elif com == 'lower_bound':
         x = int(line[1])
         idx = s.bisect_left(x)
