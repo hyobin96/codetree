@@ -3,21 +3,14 @@ from sortedcontainers import SortedSet
 n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
-s = SortedSet(range(-m, 0))
+s = SortedSet(range(1, m + 1))
 
-answer = 0
 for a in arr:
-    a = -a
-    if a not in s:
-        idx = s.bisect_right(a)
-        if idx == len(s):
-            break
-        else:
-            s.remove(s[idx])
-    else:
-        s.remove(a)
-    
-    answer += 1
+    idx = s.bisect_right(a)
+    if idx == 0:
+        break
 
-print(answer)
+    s.remove(s[idx - 1])    
+
+print(m - len(s))
 
