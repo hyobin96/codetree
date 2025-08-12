@@ -13,7 +13,7 @@ for a in arr:
         if idx == len(s):
             break
         else:
-            s.remove(a + 1)
+            s.remove(s[idx])
     else:
         s.remove(a)
     
