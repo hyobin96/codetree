@@ -17,7 +17,7 @@ while i < j:
         break
     next_l = s[i + 1]
     next_r = s[j - 1]
-    if next_l - l > r - next_r:
+    if abs(next_l - l) > abs(r - next_r):
         j = j - 1
     else:
         i = i + 1
