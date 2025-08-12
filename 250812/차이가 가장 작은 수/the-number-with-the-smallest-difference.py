@@ -16,8 +16,8 @@ while i < j:
     next_l = s[i + 1]
     next_r = s[j - 1]
     if next_l - l > r - next_r:
-        i = i + 1
-    else:
         j = j - 1
+    else:
+        i = i + 1
 
 print(answer)
