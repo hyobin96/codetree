@@ -12,12 +12,14 @@ while i < j:
     if r - l >= m:
         answer = min(answer, r - l)
     
+    if i + 1 == j:
+        break
     next_l = s[i + 1]
     next_r = s[j - 1]
-    if abs(next_l - l) > abs(r - next_r):
-        j = j - 1
+    if abs(answer - (r - next_l)) > abs(answer - (next_r - l)):
+        i += 1
     else:
-        i = i + 1
+        j -= 1
 
 if answer == 10000000000:
     print(-1)
