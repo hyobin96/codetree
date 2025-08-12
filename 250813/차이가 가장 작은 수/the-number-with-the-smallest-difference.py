@@ -9,12 +9,9 @@ answer = 10000000000
 i, j = 0, len(s) - 1
 while i < j:
     l, r = s[i], s[j]
-    if r - l < m:
-        break
-    answer = min(answer, r - l)
+    if r - l >= m:
+        answer = min(answer, r - l)
     
-    if i + 1 == j:
-        break
     next_l = s[i + 1]
     next_r = s[j - 1]
     if abs(next_l - l) > abs(r - next_r):
