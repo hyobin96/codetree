@@ -6,7 +6,7 @@ for _ in range(n):
     s.add(int(input()))
 
 answer = 10000000000
-for i in range(len(s) // 2):
+for i in range(len(s)):
     num = s[i]
     idx = s.bisect_left(m + num)
     if idx != len(s):
