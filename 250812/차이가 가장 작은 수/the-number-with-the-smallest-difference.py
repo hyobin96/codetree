@@ -6,7 +6,7 @@ for _ in range(n):
     s.add(int(input()))
 
 answer = -1
-i, j = 0, n - 1
+i, j = 0, len(s) - 1
 while i < j:
     l, r = s[i], s[j]
     if r - l < m:
