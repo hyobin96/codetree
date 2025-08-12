@@ -6,21 +6,12 @@ for _ in range(n):
     s.add(int(input()))
 
 answer = 10000000000
-i, j = 0, len(s) - 1
-while i < j:
-    l, r = s[i], s[j]
-    if r - l >= m:
-        answer = min(answer, r - l)
+for i in range(len(s) // 2):
+    num = s[i]
+    idx = s.bisect_left(m + num)
+    if idx != len(s):
+        answer = min(answer, s[idx] - num)
     
-    if i + 1 == j:
-        break
-    next_l = s[i + 1]
-    next_r = s[j - 1]
-    if abs(answer - (r - next_l)) > abs(answer - (next_r - l)):
-        i += 1
-    else:
-        j -= 1
-
 if answer == 10000000000:
     print(-1)
 else:
