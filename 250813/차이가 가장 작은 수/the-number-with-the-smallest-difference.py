@@ -13,9 +13,11 @@ while i < j:
         break
     answer = min(answer, r - l)
     
+    if i + 1 == j:
+        break
     next_l = s[i + 1]
     next_r = s[j - 1]
-    if next_l - l < r - next_r:
+    if next_l - l > r - next_r:
         j = j - 1
     else:
         i = i + 1
