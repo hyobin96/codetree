@@ -16,6 +16,6 @@ for i in range(1, n):
     for j in range(i - 1, -1, -1):
         if e[j] < s[i]:
             dp[i] = max(dp[j] + p[i], dp[i])
-            break      
+                 
 
 print(max(dp))
