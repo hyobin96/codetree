@@ -10,7 +10,7 @@ for i in range(1, n + 1):
 
 answer = -100 * k
 
-for i in range(1, n + 1):
+for i in range(k, n + 1):
     answer = max(s[i] - s[i - k], answer)
 
 print(answer)
