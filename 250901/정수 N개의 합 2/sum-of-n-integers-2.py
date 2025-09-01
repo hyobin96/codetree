@@ -8,7 +8,7 @@ for i in range(1, n + 1):
     s[i] = s[i - 1] + arr[i - 1]
 
 
-answer = -100
+answer = -100 * k
 
 for i in range(1, n + 1):
     answer = max(s[i] - s[i - k], answer)
