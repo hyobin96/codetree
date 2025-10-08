@@ -17,27 +17,30 @@ for _ in range(n - 1):
 
 target = 0
 weight = 0
+cri = 1
 
 def dfs(u, w, visited):
     global target, weight
 
-    visited[u] = 1
+    visited[u] = cri
     if weight < w:
         target = u
         weight = w
 
     for v, wei in graph[u]:
-        if visited[v]:
+        if visited[v] == cri:
             continue
 
         dfs(v, w + wei, visited)
 
 
-dfs(1, 0, [0] * (n + 1))
+visited = [0] * (n + 1)
+dfs(1, 0, visited)
 
 weight = 0
+cri += 1
 
-dfs(target, 0, [0] * (n + 1))
+dfs(target, 0, visited)
 
 print(weight)
 
