@@ -24,11 +24,11 @@ a_sums, b_sums, c_sums = [[0] * (m + 1) for _ in range(n + 1)], [[0] * (m + 1) f
 
 sums = [a_sums, b_sums, c_sums]
 
-for k in range(3):
-    target_sums = sums[k]
+for l in range(3):
+    target_sums = sums[l]
     for i in range(1, n + 1):
         for j in range(1, m + 1):
-            target_sums[i][j] = target_sums[i - 1][j] + target_sums[i][j - 1] - target_sums[i - 1][j - 1] + int(grid[i - 1][j - 1] == words[k])
+            target_sums[i][j] = target_sums[i - 1][j] + target_sums[i][j - 1] - target_sums[i - 1][j - 1] + int(grid[i - 1][j - 1] == words[l])
 
 
 for _ in range(k):
