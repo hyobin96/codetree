@@ -2,33 +2,33 @@ n, m, k = map(int, input().split())
 
 answer = []
 
-a_grid, b_grid, c_grid = [[0] * m for _ in range(n)], [[0] * m for _ in range(n)], [[0] * m for _ in range(n)]
+# a_grid, b_grid, c_grid = [[0] * m for _ in range(n)], [[0] * m for _ in range(n)], [[0] * m for _ in range(n)]
 
-grids = [a_grid, b_grid, c_grid]
+# grids = [a_grid, b_grid, c_grid]
 
 grid = [list(input()) for _ in range(n)]
 
+words = ['a', 'b', 'c']
 
-for i in range(n):
-    for j in range(m):
-        if grid[i][j] == 'a':
-            a_grid[i][j] = 1
-        elif grid[i][j] == 'b':
-            b_grid[i][j] = 1
-        else:
-            c_grid[i][j] = 1
+# for i in range(n):
+#     for j in range(m):
+#         if grid[i][j] == 'a':
+#             a_grid[i][j] = 1
+#         elif grid[i][j] == 'b':
+#             b_grid[i][j] = 1
+#         else:
+#             c_grid[i][j] = 1
 
 
 a_sums, b_sums, c_sums = [[0] * (m + 1) for _ in range(n + 1)], [[0] * (m + 1) for _ in range(n + 1)], [[0] * (m + 1) for _ in range(n + 1)]
 
 sums = [a_sums, b_sums, c_sums]
 
-for i in range(3):
-    target_grid = grids[i]
-    target_sums = sums[i]
+for k in range(3):
+    target_sums = sums[k]
     for i in range(1, n + 1):
         for j in range(1, m + 1):
-            target_sums[i][j] = target_sums[i - 1][j] + target_sums[i][j - 1] - target_sums[i - 1][j - 1] + target_grid[i - 1][j - 1]
+            target_sums[i][j] = target_sums[i - 1][j] + target_sums[i][j - 1] - target_sums[i - 1][j - 1] + int(grid[i - 1][j - 1] == words[k])
 
 
 for _ in range(k):
