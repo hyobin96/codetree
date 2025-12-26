@@ -13,6 +13,10 @@ for p in points:
     mapping_num += 1
 
 # 점의 개수는 dict(b) - dict(a) + 1 개
-for _ in range(q):
+output = [0] * q
+for i in range(q):
     a, b = map(int, input().split())
-    print(hash_set[b] - hash_set[a] + 1)
+    output[i] = str(hash_set[b] - hash_set[a] + 1)
+    # print(hash_set[b] - hash_set[a] + 1)
+
+print('\n'.join(output))
