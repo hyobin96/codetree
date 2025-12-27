@@ -2,26 +2,20 @@ from sortedcontainers import SortedSet
 
 n, q = map(int, input().split())
 
-# n 개의 점의 위치 입력받고 오름차순 정렬
+# n 개의 점의 위치 입력받고 treeset에 오름차순으로 저장
 inputs = list(map(int, input().split()))
 
 nums = SortedSet()
 
 for num in inputs:
+    nums.add(num)
 
-# 1부터 시작해서 정렬한 리스트에 가장 앞의 숫자부터 매핑, dict에 (기존 값, 매핑한 값) 으로 기록
-hash_set = dict()
-mapping_num = 1
-
-for p in points:
-    hash_set[p] = mapping_num
-    mapping_num += 1
-
-# 점의 개수는 dict(b) - dict(a) + 1 개
+# 점의 개수는 nums.bisect_right(b) - nums.bisect_left(a)개
+# 
 output = [0] * q
 for i in range(q):
     a, b = map(int, input().split())
-    output[i] = str(hash_set[b] - hash_set[a] + 1)
+    output[i] = str(nums.bisect_right(b) - nums.bisect_left(a))
     # print(hash_set[b] - hash_set[a] + 1)
 
 print('\n'.join(output))
