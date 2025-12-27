@@ -8,10 +8,7 @@ n, q = map(int, input().split())
 # n 개의 점의 위치 입력받고 treeset에 오름차순으로 저장
 inputs = list(map(int, input().split()))
 
-nums = SortedSet()
-
-for num in inputs:
-    nums.add(num)
+nums = SortedSet(inputs)
 
 # 점의 개수는 nums.bisect_right(b) - nums.bisect_left(a)개
 # 
