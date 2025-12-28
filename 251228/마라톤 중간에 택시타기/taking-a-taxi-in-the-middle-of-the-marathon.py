@@ -32,3 +32,6 @@ answer = 5000000000
 
 for i in range(1, n - 1):
     distance = L_dist[i - 1] + R_dist[i + 1] + checkpoints[i - 1].get_distance(checkpoints[i + 1])
+    answer = min(answer, distance)
+
+print(answer)
