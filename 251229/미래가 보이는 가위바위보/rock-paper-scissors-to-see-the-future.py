@@ -13,7 +13,7 @@ input = sys.stdin.readline
 
 n = int(input())
 
-queries = [input() for _ in range(n)]
+queries = [input().strip() for _ in range(n)]
 
 def is_win(q1, q2):
     if q1 == 'H' and q2 == 'S':
@@ -25,9 +25,23 @@ def is_win(q1, q2):
 
     return False
 
+
 h_wins, s_wins, p_wins = [0] * (n + 1), [0] * (n + 1), [0] * (n + 1)
 
 for i, q in enumerate(queries):
     h_wins[i + 1] = h_wins[i] + int(is_win('H', q))
     s_wins[i + 1] = s_wins[i] + int(is_win('S', q))
     p_wins[i + 1] = p_wins[i] + int(is_win('P', q))
+
+
+answer = 0
+
+l = [h_wins, s_wins, p_wins]
+
+for i in range(3):
+    for j in range(3):
+        for k in range(1, n + 1):
+            wins = l[i][k - 1] + l[j][n] - l[j][k - 1]
+            answer = max(answer, wins)
+
+print(answer)
