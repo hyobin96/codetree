@@ -12,7 +12,7 @@ l_max_list[0], r_max_list[-1] = numbers[0], numbers[-1]
 
 for i in range(1, n):
     l_max_list[i] = max(numbers[i], l_max_list[i - 1])
-    r_max_list[-i - 1] = max(numbers[-i - 1], l_max_list[-i])
+    r_max_list[-i - 1] = max(numbers[-i - 1], r_max_list[-i])
 
 answer = 0
 
