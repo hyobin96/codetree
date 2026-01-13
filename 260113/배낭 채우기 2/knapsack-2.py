@@ -20,4 +20,4 @@ for i in range(m + 1):
         if i + w <= m:
             dp[i + w] = max(dp[i + w], dp[i] + v)
 
-print(max(dp))
+print(dp[m])
