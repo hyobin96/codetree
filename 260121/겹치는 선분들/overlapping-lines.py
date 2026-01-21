@@ -31,7 +31,8 @@ x_max = points[0][0]
 for x, v, i in points:
     if v == 1:
         d[i] = x
-        x_max = x
+        if len(d) <= k:
+            x_max = x
     else:
         if len(d) >= k:
             sections.add((x_max, x))
