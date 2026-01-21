@@ -40,8 +40,11 @@ for x, v, i in points:
 
 answer = 0
 # print(sections)
+remove_d = dict()
 for section in sections:
-    answer += section[1] - section[0]
+    remove_d[section[0]] = section[1]
+for x1, x2 in remove_d.items():
+    answer += x2 - x1
 
 print(answer)
 
