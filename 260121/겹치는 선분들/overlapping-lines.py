@@ -36,7 +36,7 @@ for x, v, i in points:
     else:
         if len(d) >= k:
             sections.add((x_max, x))
-            del d[i]
+        del d[i]
 
 answer = 0
 # print(sections)
