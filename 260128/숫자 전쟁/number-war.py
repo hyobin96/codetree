@@ -28,4 +28,4 @@ for i in range(1, n + 1):
         elif 상대방[i] < 남우[j]:
             dp[i][j] = max(dp[i][j], dp[i - 1][j])
 
-print(max(dp[n]))
+print(dp[n][n])
