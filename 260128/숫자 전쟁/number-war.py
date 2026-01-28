@@ -17,15 +17,27 @@ n = int(input())
 남우 = [0] + list(map(int, input().strip().split()))
 
 
-dp = [[0] * (n + 1) for _ in range(n + 1)]
-# dp[0][0] = 0
+dp = [[-1] * (n + 1) for _ in range(n + 1)]
+dp[0][0] = 0
 
+for i in range(n):
+    for j in range(n):
+        if dp[i][j] == -1:
+            continue
+
+        # 카드 대결 - 첫 번째 플레이어의 카드가 더 작은 경우
+        if 상대방[i + 1] < 남우[j + 1]:
+            dp[i + 1][j] = max(dp[i + 1][j], dp[i][j])
+
+        # 카드 대결 - 두 번째 플레이어의 카드가 더 작은 경우
+        if 상대방[i + 1] > 남우[j + 1]:
+            dp[i][j + 1] = max(dp[i][j + 1], dp[i][j] + 남우[j + 1])
+
+        # 카드 버리기
+        dp[i + 1][j + 1] = max(dp[i + 1][j + 1], dp[i][j])
+
+ans = 0
 for i in range(1, n + 1):
-    for j in range(1, n + 1):
-        dp[i][j] = max(dp[i][j], dp[i - 1][j - 1])
-        if 상대방[i] > 남우[j]:
-            dp[i][j] = max(dp[i][j], dp[i][j - 1] + 남우[j])
-        elif 상대방[i] < 남우[j]:
-            dp[i][j] = max(dp[i][j], dp[i - 1][j])
+    ans = max(ans, dp[i][n])
 
-print(dp[n][n])
+print(ans)
