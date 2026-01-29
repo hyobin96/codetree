@@ -9,7 +9,7 @@ for _ in range(n):
     sections.append((a, 1))
     sections.append((b, -1))
 
-sections.sort(key=lambda s: (s[0], -s[1]))
+sections.sort()
 
 s = sections[0][0]
 합 = 0
