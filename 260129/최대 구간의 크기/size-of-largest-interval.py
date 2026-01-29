@@ -11,13 +11,14 @@ for _ in range(n):
 
 sections.sort()
 
-s = sections[0][0]
+s = 0
 합 = 0
 answer = 0
 for x, v in sections:
-    합 += v
-    if 합 == 0:
-        answer = max(answer, x - s)
+    if v == 1 and 합 == 0:
         s = x
+    elif v == -1 and 합 == 1:
+        answer = max(answer, x - s)
+    합 += v
 
 print(answer)
