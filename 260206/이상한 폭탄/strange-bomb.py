@@ -3,20 +3,25 @@ input = sys.stdin.readline
 
 n, k = map(int, input().strip().split())
 
-# (number, idx)
-numbers = []
-for i in range(1, n + 1):
-    number = int(input())
-    numbers.append((number, i))
+numbers = [0] * n
+for i in range(0, n):
+    numbers[i] = int(input())
 
-numbers.sort()
+num_idx_dict = dict()
 
-answer = -1
-prev_n, prev_idx = numbers[0]
-for i in range(1, n):
-    curr_n, curr_idx = numbers[i]
-    if prev_n == curr_n and curr_idx - prev_idx <= k:
-        answer = max(answer, curr_n)
-    prev_n, prev_idx = curr_n, curr_idx
+가장_가까운_인덱스 = [-1] * n
 
+for i in range(n - 1, -1, -1):
+    number = numbers[i]
+    if number in num_idx_dict:
+        가장_가까운_인덱스[i] = num_idx_dict[number]
+    else:
+        num_idx_dict[number] = i
+
+max_num = -1
+for i, idx in enumerate(가장_가까운_인덱스):
+    if idx != -1 and idx - i <= k:
+        max_num = max(max_num, numbers[i])
+
+answer = max_num
 print(answer)
