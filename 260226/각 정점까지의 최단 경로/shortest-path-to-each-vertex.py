@@ -26,7 +26,7 @@ while pq:
         new_dist = dists[u] + w
         if dists[v] > new_dist:
             dists[v] = new_dist
-            heapq.heappush(pq, (w, v))
+            heapq.heappush(pq, (new_dist, v))
 
 for i in range(1, n + 1):
     print(dists[i] if dists[i] != INF else -1)
