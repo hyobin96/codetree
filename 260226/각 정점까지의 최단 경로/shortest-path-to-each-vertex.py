@@ -28,9 +28,6 @@ while pq:
             dists[v] = new_dist
             heapq.heappush(pq, (w, v))
 
-print(0)
 for i in range(1, n + 1):
-    if i == k:
-        continue
     print(dists[i] if dists[i] != INF else -1)
 
