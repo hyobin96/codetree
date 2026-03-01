@@ -8,13 +8,11 @@ sequence.sort()
 count = 0
 j = 1
 for i in range(n - 1):
-    while sequence[i] + sequence[j] <= k:
-        count += 1
-        j += 1
-        if j == n:
-            j -= 1
-            break
 
+    while sequence[i] + sequence[j] <= k:
+        j += 1
+    
+    count += j - i - 1
 
 answer = count
 print(answer)
