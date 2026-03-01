@@ -10,10 +10,11 @@ count = 0
 for i in range(n - 1):
     j = i + 1
     total = sequence[i] + sequence[j]    
-    while j < n and total <= k:
+    while sequence[i] + sequence[j] <= k:
         count += 1
         j += 1
-        total = sequence[i] + sequence[j]
+        if j == n:
+            break
 
 answer = count
 print(answer)
