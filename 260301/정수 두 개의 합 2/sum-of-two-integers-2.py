@@ -10,9 +10,10 @@ j = 1
 for i in range(n - 1):
     while sequence[i] + sequence[j] <= k:
         count += 1
-        if j == n:
-            break
         j += 1
+        if j == n:
+            j -= 1
+            break
 
 
 answer = count
