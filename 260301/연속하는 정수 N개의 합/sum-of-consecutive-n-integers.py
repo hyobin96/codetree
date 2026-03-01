@@ -8,13 +8,13 @@ j = 0
 count = 0
 total = sequence[0]
 for i in range(n):
-    while total <= m and j < n:
-        if total == m:
-            count += 1
+    while total < m and j + 1 < n:
         j += 1
-        if j == n:
-            break
         total += sequence[j]
+    
+    if total == m:
+        count += 1
+
     total -= sequence[i]
 
 answer = count
