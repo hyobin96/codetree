@@ -6,13 +6,14 @@ sequence = [int(input()) for _ in range(n)]
 sequence.sort()
 
 count = 0
-j = 1
+j = n - 1
 for i in range(n - 1):
 
-    while sequence[i] + sequence[j] <= k:
-        j += 1
+    while j - 1 > i and sequence[i] + sequence[j] > k:
+        j -= 1
     
-    count += j - i - 1
+    if sequence[i] + sequence[j] <= k:
+        count += j - i
 
 answer = count
 print(answer)
