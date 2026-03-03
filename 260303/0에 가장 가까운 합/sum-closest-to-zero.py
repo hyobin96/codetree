@@ -12,7 +12,7 @@ while i < j:
     abs_min = min(abs_min, abs(diff))
     if abs_min == 0:
         break
-    if abs_min > 0:
+    if diff > 0:
         j -= 1
     else:
         i += 1
