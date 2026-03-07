@@ -16,8 +16,10 @@ for i in range(n):
         cnt += int(sequence[j + 1] == 1)
         j += 1
 
-    if cnt >= k:
-        min_length = min(min_length, j - i + 1)
+    if cnt < k:
+        break
+
+    min_length = min(min_length, j - i + 1)
 
     cnt -= int(sequence[i] == 1)
 
