@@ -21,5 +21,5 @@ for i in range(n):
 
     cnt -= int(sequence[i] == 1)
 
-answer = min_length
+answer = min_length if min_length != INF else -1 
 print(answer)
