@@ -30,7 +30,7 @@ def upper_bound(target):
     return max_idx
 
 n, m = map(int, input().split())
-sequence = list(map(int, input().split()))
+sequence = sorted(list(map(int, input().split())))
 
 for _ in range(m):
     x1, x2 = map(int, input().split())
