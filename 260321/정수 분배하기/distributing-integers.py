@@ -8,7 +8,7 @@ def is_possible(k, m, arr):
         cnt += num // k
     return cnt >= m
 
-max_k = 1
+max_k = 0
 left, right = 1, max(arr)
 while left <= right:
     mid = (left + right) // 2
