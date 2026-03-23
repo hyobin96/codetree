@@ -1,5 +1,6 @@
 n, m = map(int, input().split())
 arr = [int(input()) for _ in range(n)]
+arr.sort()
 
 # Please write your code here.
 # 2e5 * log1e9
@@ -11,7 +12,7 @@ arr = [int(input()) for _ in range(n)]
 def is_possible(target_gap, arr):
     i, j = 0, 1
     cnt = m - 1
-    while j < n and cnt > 0:
+    while j < n - 1 and cnt > 0:
         gap = arr[j] - arr[i]
         if gap >= target_gap:
             cnt -= 1
