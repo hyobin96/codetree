@@ -12,7 +12,7 @@ arr.sort()
 def is_possible(target_gap, arr):
     i, j = 0, 1
     cnt = m - 1
-    while j < n - 1 and cnt > 0:
+    while j < n and cnt > 0:
         gap = arr[j] - arr[i]
         if gap >= target_gap:
             cnt -= 1
