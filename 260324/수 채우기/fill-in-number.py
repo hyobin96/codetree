@@ -14,5 +14,5 @@ while n > 0:
         n = 0
 
 answer = cnt if n == 0 else -1
-print(cnt)
+print(answer)
         
