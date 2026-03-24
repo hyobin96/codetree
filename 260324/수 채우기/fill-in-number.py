@@ -1,18 +1,14 @@
 n = int(input())
 
 # Please write your code here.
-cnt = 0
-while n > 0:
-    if (n - 5) % 2 == 0 or n % 5 == 0:
-        n -= 5
-        cnt += 1
-    elif (n - 2) % 5 == 0 or n % 2 == 0:
-        n -= 2
-        cnt += 1
-    else:
-        cnt = -1
-        n = 0
+FIVE_MAX_NUM = 20000
+min_cnt = -1
 
-answer = cnt if n == 0 else -1
+for i in range(FIVE_MAX_NUM + 1):
+    remain = n - 5 * i
+    if remain >= 0 and remain % 2 == 0:
+        min_cnt = i + remain // 2
+
+answer = min_cnt
 print(answer)
         
