@@ -13,6 +13,6 @@ while n > 0:
         cnt = -1
         n = 0
 
-answer = cnt
+answer = cnt if n == 0 else -1
 print(cnt)
         
