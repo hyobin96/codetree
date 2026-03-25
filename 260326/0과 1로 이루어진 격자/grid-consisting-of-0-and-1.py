@@ -1,5 +1,5 @@
 n = int(input())
-grid = [list(map(int, tuple(input()))) for _ in range(n)]
+grid = [list(map(int, input())) for _ in range(n)]
 
 # Please write your code here.
 def reverse_left_up(r, c, grid):
