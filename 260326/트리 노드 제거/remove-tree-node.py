@@ -1,8 +1,10 @@
 node_count = int(input())
 tree = [[] for _ in range(node_count)]
 parents = list(map(int, input().split(" ")))
+root = 0
 for i, p in enumerate(parents):
     if p == -1:
+        root = i
         continue
     tree[p].append(i)
 
@@ -21,9 +23,9 @@ def count_leaf_node(parent, tree):
     return leaf_node_count
 
 target_removed = int(input())
-if target_removed == 0:
+if target_removed == root:
     print(0)
 else:
     tree[parents[target_removed]].remove(target_removed)
-    leaf_node_count = count_leaf_node(0, tree)
+    leaf_node_count = count_leaf_node(root, tree)
     print(leaf_node_count)
