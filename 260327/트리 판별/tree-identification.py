@@ -16,6 +16,8 @@ root_node = 0
 root_count = 0
 is_in_edge_count_one = True
 for i in range(1, edge_count + 1):
+    if i not in node_set:
+        continue
     in_edge_count = len(to_parent_edges[i])
     if in_edge_count == 0:
         root_node = i
@@ -40,5 +42,3 @@ if root_count != 1 or not is_in_edge_count_one:
 else:
     node_count = count_nodes(root_node, to_child_edges)
     print(int(node_count == len(node_set)))
-    
-    
