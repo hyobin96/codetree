@@ -8,8 +8,10 @@ for i, p in enumerate(parents):
         continue
     tree[p].append(i)
 
-def count_leaf_node(parent, tree):
-    stack = [parent]
+def count_leaf_node(root, tree, deleted_node):
+    if root == deleted_node:
+        return 0
+    stack = [root]
     leaf_node_count = 0
     while stack:
         p = stack.pop()
@@ -18,14 +20,12 @@ def count_leaf_node(parent, tree):
             continue
 
         for child in tree[p]:
+            if child == deleted_node:
+                continue
             stack.append(child)
     
     return leaf_node_count
 
 target_removed = int(input())
-if target_removed == root:
-    print(0)
-else:
-    tree[parents[target_removed]].remove(target_removed)
-    leaf_node_count = count_leaf_node(root, tree)
-    print(leaf_node_count)
+leaf_node_count = count_leaf_node(root, tree, target_removed)
+print(leaf_node_count)
