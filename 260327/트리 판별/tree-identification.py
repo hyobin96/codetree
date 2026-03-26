@@ -15,12 +15,12 @@ for _ in range(edge_count):
 root_node = 0
 root_count = 0
 is_in_edge_count_one = True
-for i in range(1, edge_count + 1):
-    if i not in node_set:
+for node in range(1, max_node_count + 1):
+    if node not in node_set:
         continue
-    in_edge_count = len(to_parent_edges[i])
+    in_edge_count = len(to_parent_edges[node])
     if in_edge_count == 0:
-        root_node = i
+        root_node = node
         root_count += 1
     elif in_edge_count > 1:
         is_in_edge_count_one = False
