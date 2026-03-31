@@ -3,7 +3,7 @@
 # 가장 먼 노드에서 탐색하면서 간선 개수와 간선 길이 합 비교해서 
 # 간선개수가 가장 많으면서 간선 길이가 가장 짧은 것 구해서 간선 길이 반환
 # ceil(간선 길이 / D)
-i
+import math
 
 node_count, day_dist = map(int, input().split(" "))
 tree = [[] for _ in range(node_count + 1)]
