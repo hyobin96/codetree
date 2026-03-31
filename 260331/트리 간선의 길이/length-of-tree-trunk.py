@@ -8,21 +8,18 @@ for _ in range(node_count - 1):
     tree[v].append((u, w))
 
 def farthest(begin, tree):
-    visited = [0] * (len(tree) + 1)
-    visited[begin] = 1
     max_dist, max_node = 0, begin
-    stack = [(begin, 0)]
+    stack = [(begin, 0, 0)] # curr, dist, parent
     while stack:
-        node, dist = stack.pop()
+        node, dist, parent = stack.pop()
         if dist > max_dist:
             max_dist = dist
             max_node = node
 
         for nxt_node, w in tree[node]:
-            if visited[nxt_node]:
+            if parent == nxt_node:
                 continue
-            visited[nxt_node] = 1
-            stack.append((nxt_node, dist + w))
+            stack.append((nxt_node, dist + w, node))
 
     return max_dist, max_node
     
