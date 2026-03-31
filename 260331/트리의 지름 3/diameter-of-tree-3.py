@@ -16,6 +16,8 @@ def traverse(begin, tree):
         if dist >= max_dist:
             max_dist, second_dist = dist, max_dist
             max_node, second_node = curr, max_node
+        elif dist >= second_dist:
+            second_dist, second_node = dist, curr
 
         for nxt, w in tree[curr]:
             if nxt == parent:
