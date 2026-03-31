@@ -7,26 +7,27 @@ for _ in range(node_count - 1):
     tree[u].append((v, w))
     tree[v].append((u, w))
 
-def update_dist(begin, dists, tree, visited):
+def farthest(begin, tree):
+    visited = [0] * (len(tree) + 1)
+    visited[begin] = 1
+    max_dist, max_node = 0, begin
     stack = [(begin, 0)]
     while stack:
         node, dist = stack.pop()
+        if dist > max_dist:
+            max_dist = dist
+            max_node = node
+
         for nxt_node, w in tree[node]:
-            if visited[begin][nxt_node]:
+            if visited[nxt_node]:
                 continue
-            visited[begin][nxt_node] = 1
-            dists[node][nxt_node] = dist + w
+            visited[nxt_node] = 1
             stack.append((nxt_node, dist + w))
+
+    return max_dist, max_node
     
-
-dists = [[0] * (node_count + 1) for _ in range(node_count + 1)]
-visited = [[0] * (node_count + 1) for _ in range(node_count + 1)]
-for i in range(1, node_count + 1):
-    visited[i][i] = 1
-    update_dist(i, dists, tree, visited)
-
-max_dist = 0
-for row in dists:
-    max_dist = max(max_dist, max(row))
+    
+_, node_1 = farthest(1, tree)
+max_dist, _ = farthest(node_1, tree)
 
 print(max_dist)
