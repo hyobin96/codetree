@@ -5,7 +5,7 @@ for _ in range(node_count - 1):
     tree[u].append((v, w))
     tree[v].append((u, w))
 
-def traverse(begin, tree, is_second):
+def traverse(begin, tree):
     max_node, max_dist = begin, 0
     second_node, second_dist = begin, 0
     stack = [(begin, 0, 0)] # curr, dist, parent
@@ -13,10 +13,7 @@ def traverse(begin, tree, is_second):
     while stack:
         curr, dist, parent = stack.pop()
         
-        if not is_second and dist > max_dist:
-            max_dist, second_dist = dist, max_dist
-            max_node, second_node = curr, max_node
-        elif is_second and dist >= max_dist:
+        if dist >= max_dist:
             max_dist, second_dist = dist, max_dist
             max_node, second_node = curr, max_node
 
@@ -27,6 +24,7 @@ def traverse(begin, tree, is_second):
 
     return max_node, max_dist, second_node, second_dist
 
-max_node, _, _, _ = traverse(1, tree, False)
-_, _, _, second_dist = traverse(max_node, tree, True)
-print(second_dist)
+max_node, _, _, _ = traverse(1, tree)
+max_node, _, _, second_dist1 = traverse(max_node, tree)
+_, _, _, second_dist2 = traverse(max_node, tree)
+print(max(second_dist1, second_dist2))
