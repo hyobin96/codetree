@@ -12,7 +12,7 @@ def to_int(c):
 p_pow = [[0] * (target_length + 1) for _ in range(2)]
 for k in range(2):
     p_pow[k][0] = 1
-    for i in range(1, target_length + ):
+    for i in range(1, target_length + 1):
         p_pow[k][i] = (p_pow[k][i - 1] * p[k]) % m[k]
     
 hash_targets = [0] * 2
