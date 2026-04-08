@@ -21,7 +21,7 @@ def dfs(curr, prev, tree, depths, parents):
         if nxt == prev:
             continue
         depths[nxt] = depths[curr] + 1
-        parents[[nxt] = curr
+        parents[0][nxt] = curr
         dfs(nxt, curr, tree, depths, parents)
 
 dfs(root, 0, tree, depths, parents)
