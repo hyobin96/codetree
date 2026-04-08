@@ -1,7 +1,7 @@
 _, query_count = map(int, input().split())
 s = input().rstrip()
 querys = [tuple(map(int, input().split())) for _ in range(query_count)]
-s = '#' + '#'.join(s) + ''
+s = '#' + '#'.join(s) + '#'
 s_length = len(s)
 
 center, r = -1, -1
