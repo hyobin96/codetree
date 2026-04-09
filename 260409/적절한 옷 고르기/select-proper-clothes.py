@@ -5,7 +5,7 @@ dp = [[-1] * (cloth_count + 1) for _ in range(days + 1)]
 
 for i in range(1, cloth_count + 1):
     s, e, v = cloth_info[i]
-    dp[1][i] = 0 if s <= i <= e else dp[1][i]
+    dp[1][i] = 0 if s <= 1 <= e else dp[1][i]
     
 for day in range(2, days + 1):
     for cloth1 in range(1, cloth_count + 1):
