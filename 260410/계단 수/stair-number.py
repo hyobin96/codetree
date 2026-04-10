@@ -16,6 +16,6 @@ for i in range(1, length):
         if j + 1 < 10:
             dp[i + 1][j + 1] = (dp[i + 1][j + 1] + dp[i][j]) % mod
 
-answer = sum(dp[length])
+answer = sum(dp[length]) % mod
 print(answer)
 
