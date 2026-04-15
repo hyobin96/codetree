@@ -29,7 +29,8 @@ for i in range(1, t_l):
         j = f[j]
 
 count = len(idxs)
-prev = idxs[0][1]
+if idxs:
+    prev = idxs[0][1]
 for i, (l, r) in enumerate(idxs):
     if i == 0:
         continue
