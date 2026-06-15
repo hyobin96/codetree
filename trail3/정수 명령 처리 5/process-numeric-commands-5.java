@@ -6,19 +6,18 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         // Please write your code here.
-        sc.nextLine();
 
         List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            String[] input = sc.nextLine().split(" ");
+            String command = sc.next();
 
-            switch (input[0]){
+            switch (command){
                 case "push_back":
-                    list.add(Integer.valueOf(input[1]));
+                    list.add(sc.nextInt());
                     break;
                 case "get":
-                    int k = Integer.valueOf(input[1]);
+                    int k = sc.nextInt();
                     if (list.size() >= k)
                     System.out.println(list.get(k - 1));
                     break;
