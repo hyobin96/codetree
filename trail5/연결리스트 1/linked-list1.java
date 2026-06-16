@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 class Node {
     String data;
@@ -32,23 +33,25 @@ class Node {
 }
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         // Please write your code here.
         Scanner sc = new Scanner(System.in);    
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String init = sc.next();
-        int n = sc.nextInt();
+        // String init = sc.next();
+        String init = br.readLine();
+        int n = Integer.valueOf(br.readLine());
         Node curr = new Node(init);
 
         for (int i = 0; i < n; i++) {
-            int command = sc.nextInt();
+            String[] command = br.readLine().split(" ");
 
-            switch (command) {
+            switch (Integer.valueOf(command[0])) {
                 case 1:
-                    curr.insertPrev(new Node(sc.next()));
+                    curr.insertPrev(new Node(command[1]));
                     break;
                 case 2:
-                    curr.insertNext(new Node(sc.next()));
+                    curr.insertNext(new Node(command[1]));
                     break;
                 case 3:
                     if (curr.prev != null) {
