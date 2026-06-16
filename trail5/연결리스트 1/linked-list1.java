@@ -1,74 +1,60 @@
 import java.util.*;
 import java.io.*;
 
-class Node {
-    String data;
-    Node prev, next;
-    public Node(String data) {
+class Node<E> {
+    E data;
+    Node<E> prev, next;
+
+    public Node(E data) {
         this.data = data;
-        this.prev = this.next = null;
-    }
-
-    // prev  new  cur
-    public void insertPrev(Node newNode) {
-        newNode.next = this;
-        newNode.prev = this.prev;
-        this.prev = newNode;
-
-        if (newNode.prev != null) {
-            newNode.prev.next = newNode;
-        }
-    }
-
-    // cur new next
-    public void insertNext(Node newNode) {
-        newNode.prev = this;
-        newNode.next = this.next;
-        this.next = newNode;
-
-        if (newNode.next != null) {
-            newNode.next.prev = newNode;
-        }
+        prev = next = null;
     }
 }
 
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) {
         // Please write your code here.
-        Scanner sc = new Scanner(System.in);    
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Scanner sc = new Scanner(System.in);
+        String init = sc.next();
 
-        // String init = sc.next();
-        String init = br.readLine();
-        int n = Integer.valueOf(br.readLine());
-        Node curr = new Node(init);
+        Node<String> head = new Node<>("(Null)");
+        Node<String> tail = new Node<>("(Null)");
 
+        Node<String> cur = new Node<>(init);
+        head.next = cur;
+        cur.prev = head;
+        cur.next = tail;
+        tail.prev = cur;
+
+        int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
-            String[] command = br.readLine().split(" ");
-
-            switch (Integer.valueOf(command[0])) {
+            int command = sc.nextInt();
+            StringBuilder builder = new StringBuilder();
+            Node<String> newNode;
+            switch (command) {
                 case 1:
-                    curr.insertPrev(new Node(command[1]));
+                    newNode = new Node<>(sc.next());
+                    newNode.prev = cur.prev;
+                    newNode.next = cur;
+                    cur.prev.next = newNode;
+                    cur.prev = newNode;
                     break;
                 case 2:
-                    curr.insertNext(new Node(command[1]));
+                    newNode = new Node<>(sc.next());
+                    newNode.next = cur.next;
+                    newNode.prev = cur;
+                    cur.next.prev = newNode;
+                    cur.next = newNode;
                     break;
                 case 3:
-                    if (curr.prev != null) {
-                        curr = curr.prev;
-                    }
+                    if (cur.prev != head) cur = cur.prev;
                     break;
                 case 4:
-                    if (curr.next != null) {
-                        curr = curr.next;
-                    }
+                    if (cur.next != tail) cur = cur.next;
                     break;
             }
-            StringBuilder builder = new StringBuilder();
-            builder.append((curr.prev != null ? curr.prev.data : "(Null)") + " ");
-            builder.append(curr.data + " ");
-            builder.append(curr.next != null ? curr.next.data : "(Null)");
-            System.out.println(builder);
+            builder.append(cur.prev.data + " " + cur.data + " " + cur.next.data);
+            System.out.println(builder.toString());
         }
     }
 }
